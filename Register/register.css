@@ -10,7 +10,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #4070f4;
+    background: #4C956C;
 }
 
 .container{
@@ -38,7 +38,7 @@ body{
     height: 3px;
     width: 28px;
     border-radius: 12px;
-    background: #4070f4;
+    background: #4C956C;
 }
 
 .container form{
@@ -50,7 +50,7 @@ body{
     margin: 18px 0;
 }
 
-form .input-box input{
+/* form .input-box input{
     height: 100%;
     width: 100%;
     outline: none;
@@ -61,13 +61,56 @@ form .input-box input{
     border: 1.5px solid #C7BEBE;
     border-bottom-width: 2.5px;
     border-radius: 6px;
-    transition: all 0.3 ease;
+    transition: all 0.3s ease;
+} */
+
+/* Ajout */
+form .input-box{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
 }
 
-.input-box input:focus,
-.input-box input:valid{
-    border-color: #4070f4;
+.input-box input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.3s ease;
 }
+
+.input-box input:is(:focus, :valid){
+    border-bottom-color: #4C956C;
+}
+
+form .input-box i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.3s ease;
+}
+
+.input-box input:is(:focus, :valid) ~ i{
+    color: #4C956C;
+}
+
+form .input-box i.icon{
+    left: 0;
+}
+
+form .input-box i.showHide{
+    right: 0;
+    cursor: pointer;
+}
+/* Fin */
 
 form .policy{
     display: flex;
@@ -85,16 +128,28 @@ form h3{
     color: #fff;
     letter-spacing: 1px;
     border: none;
-    background: #4070f4;
+    border-radius: 6px;
+    background: #4C956C;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .input-box.boutton input:hover{
-    background: #0e4bf1;
+    background: #2C6E49;
 }
 
 form .text h3{
     color: #333;
     width: 100%;
     text-align: center;
+}
+
+form .text h3 a{
+    color: #4C956C;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+form .text h3 a:hover{
+    text-decoration: underline;
 }
