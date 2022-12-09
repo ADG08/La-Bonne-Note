@@ -15,13 +15,13 @@
     }
     else{
       $_SESSION['profil'] = $profil;
-      $url = "accueil.php";
+      $url = "../redirect.php";
       header("Location:" . $url);
     }
   }
 
   function verif_ident($email,$passw,array &$profil) {
-    require('connectSQL.php');
+    require('../connectSQL.php');
     $sql="SELECT * FROM `users` where email=:email and passw=:passw";
     try{
       $commande = $pdo->prepare($sql);
