@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: aqua;
+  gap: 20px;
+  padding: 16px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.content input:last-child {
+  align-self: center;
+
+  border-radius: 12px;
+  padding: 8px 12px;
+  border-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
