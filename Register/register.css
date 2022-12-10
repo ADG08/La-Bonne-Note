@@ -10,7 +10,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #4C956C;
+    /*background: #4C956C;*/
+    background-image: url("https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?cs=srgb&dl=pexels-pixabay-301920.jpg&fm=jpg");
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .container{
