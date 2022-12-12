@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-    include("login.php");
+    include("../login.php");
 
     if($_SERVER['REQUEST_METHOD']=="POST"){
         $prenom = $_POST['prenom'];
@@ -13,7 +13,7 @@ session_start();
 
             mysqli_query($con,$query);
 
-            header("Location: login.php");
+            header("Location: ../login.php");
             die;
         }else{
             echo "Entrez des informations valide";
