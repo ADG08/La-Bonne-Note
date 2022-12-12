@@ -28,6 +28,10 @@ img{
 
 .container{
     width: 100%;
+    background: #FEFEE3;
+    padding: 34px;
+    border-radius: 9px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     max-width: 900px;
     height: auto;
     border-radius: 9px;
