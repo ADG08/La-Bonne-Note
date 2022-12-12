@@ -6,19 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="login.css">
-  <title>Login</title>
+  <title>Login - La Bonne Note</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ac2f7dafa4.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <script src="../Register/register.js"></script>
   <div class="container">
-    <h1>Connexion</h1>
-    <form action="login.php" method="post" class="content">
-      <p>Email :</p>
-      <input type="text" name="email" value="<?php echo $email; ?>">
-      <p>Mot de passe :</p>
-      <input type="password" name="passw" value="<?php echo $passw; ?>">
-      <input type="submit" value="soumettre"></input>
-    </form>
+    <h1>Connecte-toi simplement !</h1>
+
+    <div class="separator">
+      <div class="image"><img src="./imgConnexion.jpg" alt="image décorative"></img></div>
+
+      <form action="login.php" method="post">
+        <div class="elements">
+          <input class="mail" type="text" name="email" value="<?php echo $email; ?>" placeholder="E-mail : exemple@e-mail.fr">
+          <i class="fa-regular fa-envelope icon"></i>
+        </div>
+        <div class="elements">
+          <input class="password" type="password" name="passw" value="<?php echo $passw; ?>" placeholder="Mot de passe">
+          <i class="fa-solid fa-lock icon"></i>
+          <i class="fa-regular fa-eye-slash showHide"></i>
+        </div>
+        <div class="elements">
+          <input class="boutton" type="submit" value="Se connecter"></input>
+        </div>
+        <div class="text">
+          <small>Pas encore inscrit(e) ? <a href="../Register/register.html">S'inscrire</a> </small>
+        </div>
+      </form>
+    </div>
   </div>
 </body>
 
