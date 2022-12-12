@@ -1,6 +1,5 @@
 <?php
 
-
 $prenom = isset($_POST['prenom']) ? ($_POST['prenom']) : '';
 $email = isset($_POST['email']) ? ($_POST['email']) : '';
 $passw = isset($_POST['passw']) ? ($_POST['passw']) : '';
@@ -28,3 +27,4 @@ else {
         header("Location:" . $url);
     }
 }
+
