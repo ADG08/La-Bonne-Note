@@ -41,13 +41,6 @@ img{
     flex-direction: column;
 }
 
-.separer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
 .container h2{
     position: relative;
     font-size: 22px;
@@ -73,6 +66,13 @@ img{
 .container form .input-box{
     height: 52px;
     margin: 18px 0;
+}
+
+.separer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 /* Ajout */
@@ -144,6 +144,7 @@ form h3{
     background: #FFC9B9;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-bottom: 2px solid #D68C45;
 }
 
 /* .input-box.boutton input:hover{
