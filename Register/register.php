@@ -1,5 +1,4 @@
 <?php
-<<<<<<< Updated upstream
 
 $prenom = isset($_POST['prenom']) ? ($_POST['prenom']) : '';
 $email = isset($_POST['email']) ? ($_POST['email']) : '';
@@ -29,26 +28,3 @@ else {
     }
 }
 
-=======
-    require("register.tpl");
-    require("../connectSQL.php");
-
-    if($_SERVER['REQUEST_METHOD']=="POST"){
-        $prenom = $_POST['prenom'];
-        $mdp = $_POST['mdp'];
-        $email = $_POST['email'];
-
-        if(!empty($prenom) && !empty($mdp) && !empty($email)){
-            //sauvegarde dans la base de données
-            $query = "insert into utilisateur (Prenom, mdp, email) values ('$prenom', '$mdp', '$email')";
-
-            mysqli_query($dns,$query);
-
-            header("Location: ../Login/login.php");
-            die;
-        }else{
-            echo "Entrez des informations valide";
-        }
-    }
-?>
->>>>>>> Stashed changes
