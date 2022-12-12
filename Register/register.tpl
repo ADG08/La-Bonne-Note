@@ -14,18 +14,20 @@
     <div class="container">
         <h2>Inscription</h2>
         <div class="separer">
-            <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?cs=srgb&dl=pexels-pixabay-301920.jpg&fm=jpg" alt="imgInsc">
-            <form action="#">
+            <div class="image">
+                <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?cs=srgb&dl=pexels-pixabay-301920.jpg&fm=jpg" alt="imgInsc">
+            </div>
+            <form action="register.php" method="post">
                 <div class="input-box">
-                    <input type="text" name="prenom" placeholder="Entrer votre nom" required>
+                    <input type="text" placeholder="Entrer votre nom" name="prenom" value="<?php echo $prenom; ?>" required>
                     <i class="fa-regular fa-user icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Entrez votre email" required>
+                    <input type="text" placeholder="Entrez votre email" name="email" value="<?php echo $email; ?>" required>
                     <i class="fa-regular fa-envelope icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="mdp" class="password" placeholder="Mot de passe" required>
+                    <input type="password" class="password" placeholder="Mot de passe" name="passw" value="<?php echo $passw; ?>" required>
                     <i class="fa-solid fa-lock icon"></i>
                 </div>
                 <div class="input-box">
@@ -34,6 +36,10 @@
                     <i class="fa-regular fa-eye-slash showHide"></i>
                 </div>
                 <div class="prof">
+                    <input type="checkbox">
+                    <h3>Êtes-vous un professeur ?</h3>
+                </div>
+                <div class="policy">
                     <input type="checkbox">
                     <h3>J'accepte les conditions d'utilisation</h3>
                 </div>

@@ -11,13 +11,9 @@ body{
     align-items: center;
     justify-content: center;
     background: #4C956C;
-    /* background-image: url("https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?cs=srgb&dl=pexels-pixabay-301920.jpg&fm=jpg"); */
-    background-position: center;
-    background-repeat: no-repeat;
-
 }
 
-img{
+.image img{
     max-width: 400px;
     border-radius: 9px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -30,19 +26,12 @@ img{
     width: 100%;
     max-width: 900px;
     height: auto;
-    border-radius: 9px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    background-color : #FEFEE3;
+    background: #FEFEE3;
     padding: 34px;
+    border-radius: 9px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     display : flex;
     flex-direction: column;
-}
-
-.separer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
 }
 
 .container h2{
@@ -50,6 +39,7 @@ img{
     font-size: 22px;
     font-weight: 600;
     color: #333;
+    animation: apparition 0.4s 0.8s ease-out forwards;
 }
 
 .container h2::before{
@@ -65,6 +55,7 @@ img{
 
 .container form{
     margin-top: 25px;
+    animation: apparition 0.8s 0.2s ease-out forwards;
 }
 
 .container form .input-box{
@@ -72,19 +63,12 @@ img{
     margin: 18px 0;
 }
 
-/* form .input-box input{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    padding: 0 15px;
-    font-size: 17px;
-    font-weight: 400;
-    color: #333;
-    border: 1.5px solid #C7BEBE;
-    border-bottom-width: 2.5px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-} */
+.separer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
 
 /* Ajout */
 form .input-box{
@@ -105,12 +89,11 @@ form .input-box{
     font-size: 16px;
     border-bottom: 2px solid #D68C45;
     border-top: 2px solid transparent;
-    transition: all 0.3s ease;
 }
 
 /* .input-box input:is(:focus, :valid){
     border-bottom-color: #4C956C;
-} */
+}
 
 /* .input-box input:is(:focus, :valid) ~ i{
     color: #4C956C;
@@ -155,11 +138,12 @@ form h3{
     background: #FFC9B9;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-bottom: 2px solid #D68C45;
 }
 
-/* .input-box.boutton input:hover{
-    background: #2C6E49;
-} */
+.input-box.boutton input:hover{
+    background: #dea99a;
+}
 
 form .text h3{
     color: #333;
@@ -177,20 +161,18 @@ form .text h3 a:hover{
     text-decoration: underline;
 }
 
-@media screen and (max-width: 720px) {
-    .image img {
-      max-width: 250px;
+@media screen and (max-width: 735px) {
+    form{
+        margin: auto;
     }
-  }
-  @media screen and (max-width: 550px) {
-    .image img {
+    .image img{
       display: none;
     }
-  }
+}
 
 @keyframes apparition {
     100% {
       opacity: 1;
       transform: none;
     }
-  }
+}

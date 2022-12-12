@@ -6,7 +6,7 @@ const container = document.querySelector(".container"),
             eyeIcon.addEventListener("click", ()=>{
                 password.forEach(password =>{
                     if(password.type=="password"){
-                        password.type ="test";
+                        password.type ="text";
 
                         showHide.forEach(icon =>{
                             icon.classList.replace("fa-eye-slash","fa-eye")
