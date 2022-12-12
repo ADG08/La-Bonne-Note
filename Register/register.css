@@ -164,6 +164,7 @@ form .text h3 a:hover{
 @media screen and (max-width: 735px) {
     form{
         margin: auto;
+        transition: margin-left 0.18 ease;
     }
     .image img{
       display: none;
