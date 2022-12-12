@@ -6,11 +6,9 @@ $passw = isset($_POST['passw']) ? ($_POST['passw']) : '';
 
 
 
-if (count($_POST) == 0)
+if (count($_POST) == 0){
     require("register.tpl");
-else {
-
-
+}else{
     if (!empty($prenom) && !empty($passw) && !empty($email)) {
 
         $sql = "insert into users (nom, email, passw, prof) values (:nom, :email, :passw, 1)";
