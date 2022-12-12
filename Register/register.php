@@ -16,11 +16,8 @@ session_start();
             header("Location: login.php");
             die;
         }else{
-            echo "Entrez des informations valide"
+            echo "Entrez des informations valide";
         }
     }
-
-
-
 
 ?>
