@@ -33,6 +33,10 @@ body {
 
   align-self: flex-end;
   margin-right: 10vh;
+
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: apparition 0.4s 0.8s ease-out forwards;
 }
 
 .separator { /*separation entre l'image et le form*/
@@ -46,6 +50,9 @@ body {
   max-width: 400px;
   border-radius: 9px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  opacity: 0;
+  transform: translateX(30px);
+  animation: apparition 0.8s 1s ease-out forwards;
 }
 
 form { 
@@ -53,6 +60,10 @@ form {
   flex-direction: column;
   gap: 16px;
   margin-top: 25px;
+
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: apparition 0.8s 0.2s ease-out forwards;
 }
 
 .elements{ /*elements(input + boutton) du form*/
@@ -74,7 +85,6 @@ form {
   background-color : #FEFEE3;
   border-bottom: 2px solid #ccc;
   border-top: 2px solid transparent;
-  transition: all 0.3s ease;
 }
 
 .elements .boutton{
@@ -131,7 +141,7 @@ form .text a:hover{
 }
 
 
-
+/*RESPONSIVE*/
 @media screen and (max-width: 720px) {
   .image img {
     max-width: 250px;
@@ -140,5 +150,13 @@ form .text a:hover{
 @media screen and (max-width: 550px) {
   .image img {
     display: none;
+  }
+}
+
+/*ANIMATION*/
+@keyframes apparition {
+  100% {
+    opacity: 1;
+    transform: none;
   }
 }

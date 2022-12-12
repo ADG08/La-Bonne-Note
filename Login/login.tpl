@@ -19,7 +19,7 @@
     <div class="separator">
       <div class="image"><img src="./imgConnexion.jpg" alt="image décorative"></img></div>
 
-      <form action="login.php" method="post">
+      <form id="connexion" action="login.php" method="post">
         <div class="elements">
           <input class="mail" type="text" name="email" value="<?php echo $email; ?>" placeholder="E-mail : exemple@e-mail.fr">
           <i class="fa-regular fa-envelope icon"></i>
