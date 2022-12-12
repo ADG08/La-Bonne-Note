@@ -15,17 +15,17 @@
         <h2>Inscription</h2>
         <div class="separer">
             <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?cs=srgb&dl=pexels-pixabay-301920.jpg&fm=jpg" alt="imgInsc">
-            <form action="#">
+            <form action="register.php" method="post">
                 <div class="input-box">
-                    <input type="text" name="prenom" placeholder="Entrer votre nom" required>
+                    <input type="text" placeholder="Entrer votre nom" name="prenom" value="<?php echo $prenom; ?>" required>
                     <i class="fa-regular fa-user icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Entrez votre email" required>
+                    <input type="text" placeholder="Entrez votre email" name="email" value="<?php echo $email; ?>" required>
                     <i class="fa-regular fa-envelope icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="mdp" class="password" placeholder="Mot de passe" required>
+                    <input type="password" class="password" name="passw" placeholder="Mot de passe" value="<?php echo $passw; ?>" required>
                     <i class="fa-solid fa-lock icon"></i>
                 </div>
                 <div class="input-box">
