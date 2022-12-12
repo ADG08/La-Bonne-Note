@@ -10,7 +10,7 @@ session_start();
         if(!empty($prenom) && !empty($mdp)){
             //sauvegarde dans la base de données
             $query = "insert into utilisateur (Prenom, mdp, email) values ('$Prenom', '$mdp', '$email')";
-            
+
             mysqli_query($con,$query);
 
             header("Location: login.php");
