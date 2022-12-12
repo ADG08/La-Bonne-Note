@@ -11,15 +11,19 @@ body{
     align-items: center;
     justify-content: center;
     background: #4C956C;
+    /* background-image: url("https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?cs=srgb&dl=pexels-pixabay-301920.jpg&fm=jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 
 .container{
     position: relative;
     max-width: 430px;
     width: 100%;
-    background: #fff;
+    background: #FEFEE3;
     padding: 34px;
-    border-radius: 6px;
+    border-radius: 9px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -38,7 +42,7 @@ body{
     height: 3px;
     width: 28px;
     border-radius: 12px;
-    background: #4C956C;
+    background: #D68C45;
 }
 
 .container form{
@@ -73,6 +77,7 @@ form .input-box{
 }
 
 .input-box input{
+    background-color: #FEFEE3;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -80,26 +85,26 @@ form .input-box{
     border: none;
     outline: none;
     font-size: 16px;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #D68C45;
     border-top: 2px solid transparent;
     transition: all 0.3s ease;
 }
 
-.input-box input:is(:focus, :valid){
+/* .input-box input:is(:focus, :valid){
     border-bottom-color: #4C956C;
-}
+} */
+
+/* .input-box input:is(:focus, :valid) ~ i{
+    color: #4C956C;
+} */
 
 form .input-box i{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: #999;
+    color: #D68C45;
     font-size: 23px;
     transition: all 0.3s ease;
-}
-
-.input-box input:is(:focus, :valid) ~ i{
-    color: #4C956C;
 }
 
 form .input-box i.icon{
@@ -112,7 +117,7 @@ form .input-box i.showHide{
 }
 /* Fin */
 
-form .policy{
+form .policy, .prof{
     display: flex;
     align-items: center;
 }
@@ -125,18 +130,18 @@ form h3{
 }
 
 .input-box.boutton input{
-    color: #fff;
+    color: black;
     letter-spacing: 1px;
     border: none;
     border-radius: 6px;
-    background: #4C956C;
+    background: #FFC9B9;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.input-box.boutton input:hover{
+/* .input-box.boutton input:hover{
     background: #2C6E49;
-}
+} */
 
 form .text h3{
     color: #333;
@@ -145,7 +150,7 @@ form .text h3{
 }
 
 form .text h3 a{
-    color: #4C956C;
+    color: #D68C45;
     text-decoration: none;
     transition: all 0.3s ease;
 }
