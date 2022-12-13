@@ -39,30 +39,46 @@ const container = document.querySelector(".container"),
             })
         })
 
-        function checkInputs() {
-            // trim to remove the whitespaces
+        form.addEventListener('submit', e => {
+            e.preventDefault();
             
+            checkInputs();
+        });
+
+        function checkInputs() {   
             if(email == '') {
-                setErrorFor(email, 'Email cannot be blank');
+                setErrorFor(email, "L'email ne peut pas être vide");
             } else if (!isEmail(email)) {
-                setErrorFor(email, 'Not a valid email');
+                setErrorFor(email, 'Email pas valide');
             } else {
                 setSuccessFor(email);
             }
             
             if(password == '') {
-                setErrorFor(password, 'Password cannot be blank');
+                setErrorFor(password, 'MDP ne peut pas être vide');
             } else {
                 setSuccessFor(password);
             }
             
             if(password2 == '') {
-                setErrorFor(password2, 'Password2 cannot be blank');
+                setErrorFor(password2, 'MDP ne peut pas être vide');
             } else if(password !== password2) {
-                setErrorFor(password2, 'Passwords does not match');
+                setErrorFor(password2, 'Les MDP ne correspondent pas');
             } else{
                 setSuccessFor(password2);
             }
+        }
+
+        function setErrorFor(input, message) {
+            const formControl = input.parentElement;
+            const small = formControl.querySelector('small');
+            formControl.className = 'input-box error';
+            small.innerText = message;
+        }
+        
+        function setSuccessFor(input) {
+            const formControl = input.parentElement;
+            formControl.className = 'input-box success';
         }
 
         function isEmail(email) {
