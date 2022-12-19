@@ -1,7 +1,7 @@
 <?php
 
   $hostname = "localhost";
-  $base= "app";
+  $base= "bd_la_bonne_note";
   $loginBD= "root";
   $passBD= "root";
 
