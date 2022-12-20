@@ -5,7 +5,11 @@ body {
 }
 
 .header img {
-    height: 10vh;
+    height: 15vh;
     width: 10vw;
-    background-color: black;
+}
+
+.header {
+    background-color: #FEFEE3;
+    border-radius: 10px;
 }
