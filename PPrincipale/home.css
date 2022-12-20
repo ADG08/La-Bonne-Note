@@ -4,6 +4,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.header {
-    
+.header img {
+    height: 10vh;
+    width: 10vw;
 }
