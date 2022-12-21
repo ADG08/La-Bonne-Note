@@ -1,15 +1,17 @@
 body {
     height: 97.4vh;
-    background: linear-gradient(to bottom right, #BCFFDB, #2C6E49);
-    background-repeat: no-repeat;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), radial-gradient(50% 50% at 50% 50%, rgba(206, 244, 223, 0.66) 0%, rgba(44, 110, 73, 0) 100%), #BEE6CE;
+    mix-blend-mode: multiply;
 }
 
 .header img {
-    height: 15vh;
-    width: 10vw;
+    width: 7%;
 }
 
 .header {
-    background-color: #FEFEE3;
+    background-color: #BEE6CE;
     border-radius: 10px;
+    margin-top: -7.7px;
+    margin-left: -7.7px;
+    margin-right: -7.7px;
 }
