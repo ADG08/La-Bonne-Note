@@ -1,48 +1,62 @@
 body {
-    height: 97.4vh;
+  height: 97.4vh;
+  background-color: black;
 }
 
 header .logo {
-    margin-top: 7px;
-    width: 8%;
+  margin-top: 7px;
+  width: 8%;
 }
 
 header h3 {
-    float: right;
-    margin-right: 55px;
-    margin-top: 30px;
+  float: right;
+  margin-right: 55px;
+  margin-top: 30px;
 
-    color: rgba(0, 0, 0, 0.75);
+  color: rgba(0, 0, 0, 0.75);
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 36px;
-    background-color: blue;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 36px;
 }
 
 header .trait {
-    float: right;
-    width: 17%;
-    margin-top: 60px;   
-    margin-right: -198px;
+  float: right;
+  width: 17%;
+  margin-top: 60px;
+  margin-right: -198px;
 }
 
+header,
+footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
 
-header, footer {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), radial-gradient(50% 50% at 50% 50%, rgba(206, 244, 223, 0.66) 0%, rgba(44, 110, 73, 0) 100%), #BEE6CE;
-    mix-blend-mode: normal;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(206, 244, 223, 0.66) 0%,
+      rgba(44, 110, 73, 0) 100%
+    ),
+    #bee6ce;
+  mix-blend-mode: normal;
 }
 
-header{
-    top: 0;
+header {
+  top: 0;
 }
 
 footer {
-    bottom: 0;
+  bottom: 0;
+}
+
+.maDiv {
+  position: absolute;
+  left: 0;
+  height: 70.45%;
+  top: 99px;
+  width: 100%;
 }
