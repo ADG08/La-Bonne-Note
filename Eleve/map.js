@@ -76,7 +76,7 @@ $(document).ready(function () {
             console.log(res);
         },
         error: function (err) {
-            consol.log(err);
+            console.error(err);
         },
     });
 });
