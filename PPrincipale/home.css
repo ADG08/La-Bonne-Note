@@ -1,17 +1,47 @@
 body {
     height: 97.4vh;
+}
+
+header .logo {
+    margin-top: 7px;
+    width: 8%;
+}
+
+header h3 {
+    float: right;
+    margin-right: 55px;
+    margin-top: 30px;
+
+    color: rgba(0, 0, 0, 0.75);
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+}
+
+header .trait {
+    float: right;
+    width: 17%;
+    margin-top: 60px;   
+    margin-right: -198px;
+}
+
+
+header, footer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), radial-gradient(50% 50% at 50% 50%, rgba(206, 244, 223, 0.66) 0%, rgba(44, 110, 73, 0) 100%), #BEE6CE;
-    mix-blend-mode: multiply;
+    mix-blend-mode: normal;
 }
 
-.header img {
-    width: 7%;
+header{
+    top: 0;
 }
 
-.header {
-    background-color: #BEE6CE;
-    border-radius: 10px;
-    margin-top: -7.7px;
-    margin-left: -7.7px;
-    margin-right: -7.7px;
+footer {
+    bottom: 0;
 }
