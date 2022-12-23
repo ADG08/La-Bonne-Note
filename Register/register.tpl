@@ -47,7 +47,7 @@
                     <input type="submit" value="S'inscrire">
                 </div>
                 <div class="text">
-                    <h3>Déjà un compte ? <a href="#">Se connecter</a> </h3>
+                    <h3>Déjà un compte ? <a href="../Login/login.php">Se connecter</a> </h3>
                 </div>
             </form>
         </div>  

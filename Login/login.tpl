@@ -33,7 +33,7 @@
           <input class="boutton" type="submit" value="Se connecter"></input>
         </div>
         <div class="text">
-          <small>Pas encore inscrit(e) ? <a href="../Register/register.html">S'inscrire</a> </small>
+          <small>Pas encore inscrit(e) ? <a href="../Register/register.php">S'inscrire</a> </small>
         </div>
       </form>
     </div>
