@@ -41,6 +41,22 @@ header .trait {
   margin-right: -198px;
 }
 
+header .trait {
+  transition: width 5s, height 2s, background-color 2s, transform 2s;
+}
+
+header .trait:hover {
+  width: 200px;
+  rotate: 180deg;
+}
+
+header .trait {
+  font-size: 14px;
+  transition-property: font-size;
+  transition-duration: 4s;
+  transition-delay: 2s;
+}
+
 header,
 footer {
   background: #9cc4a8;
@@ -56,13 +72,11 @@ footer {
 .maDiv {
   height: 82vh;
   width: 60%;
-  border: solid blueviolet;
 }
 
-.yo {
+.selection {
   width: 40%;
   height: 100%;
-  border: solid palevioletred;
 }
 
 footer {
