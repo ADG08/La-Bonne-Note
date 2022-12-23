@@ -50,13 +50,13 @@ header {
 }
 
 footer {
-  bottom: 0;
+  top: 525px;
 }
 
 .maDiv {
   position: absolute;
   left: 0;
   height: 70.45%;
-  top: 99px;
-  width: 100%;
+  top: 106px;
+  width: 60%;
 }
