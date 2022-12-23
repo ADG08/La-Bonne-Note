@@ -21,6 +21,19 @@ header h3 {
   line-height: 36px;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 header .trait {
   float: right;
   width: 17%;
@@ -62,17 +75,4 @@ footer {
   top: 0;
   width: 40%;
   right: 38px;
-}
-
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.75);
-}
-
-a:hover {
-  text-decoration: none;
 }
