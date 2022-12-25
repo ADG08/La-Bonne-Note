@@ -1,4 +1,5 @@
 body {
+  padding: 0;
   margin: 0;
 }
 
@@ -81,4 +82,8 @@ footer {
 
 footer {
   border: solid 5px #9cc4a8;
+}
+
+footer h5 {
+  text-align: center;
 }
