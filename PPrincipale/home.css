@@ -13,7 +13,7 @@ header h3 {
   margin-right: 55px;
   margin-top: 30px;
 
-  color: rgba(0, 0, 0, 0.75);
+  color: black;
 
   font-family: "Inter";
   font-style: normal;
@@ -28,11 +28,12 @@ a:link {
 
 a:visited {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.75);
+  color: black;
 }
 
 a:hover {
   text-decoration: none;
+  color: #255b3d;
 }
 
 header .trait {
@@ -40,22 +41,6 @@ header .trait {
   width: 17%;
   margin-top: 60px;
   margin-right: -198px;
-}
-
-header .trait {
-  transition: width 5s, height 2s, background-color 2s, transform 2s;
-}
-
-header .trait:hover {
-  width: 200px;
-  rotate: 180deg;
-}
-
-header .trait {
-  font-size: 14px;
-  transition-property: font-size;
-  transition-duration: 4s;
-  transition-delay: 2s;
 }
 
 header,
