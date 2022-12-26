@@ -21,7 +21,7 @@ if (count($_POST) == 0){
             ':passw' => $passw,
         ]);
 
-        $url = "../Login/login.php";
+        $url = "infos_sup.html";
         header("Location:" . $url);
     }
 }

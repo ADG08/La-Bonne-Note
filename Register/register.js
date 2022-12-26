@@ -40,9 +40,9 @@ showHide.forEach(eyeIcon =>{
     })
 })
 
-/* password.addEventListener('input', function(){
+/*password.addEventListener('input', function(){
     password2.pattern = '${this.value}';
-}) */
+})*/
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
