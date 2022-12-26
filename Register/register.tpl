@@ -39,10 +39,6 @@
                     <input type="checkbox">
                     <h3>Êtes-vous un professeur ?</h3>
                 </div>
-                <div class="policy">
-                    <input type="checkbox">
-                    <h3>J'accepte les conditions d'utilisation</h3>
-                </div>
                 <div class="input-box boutton">
                     <input type="submit" value="S'inscrire">
                 </div>
