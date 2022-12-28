@@ -7,7 +7,7 @@ $passw = isset($_POST['passw']) ? ($_POST['passw']) : '';
 
 
 if (count($_POST) == 0){
-    require("register.tpl");
+    require("register.html");
 }else{
     if (!empty($prenom) && !empty($passw) && !empty($email)) {
 
@@ -21,7 +21,7 @@ if (count($_POST) == 0){
             ':passw' => $passw,
         ]);
 
-        $url = "infos_sup.html";
+        $url = "../redirect.php";
         header("Location:" . $url);
     }
 }

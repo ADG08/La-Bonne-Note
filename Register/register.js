@@ -4,6 +4,7 @@ const username = document.querySelectorAll("prenom");
 const password = document.querySelectorAll(".motdepasse");
 const password2 = document.querySelectorAll(".motdepasse2");
 const email = document.querySelectorAll('.email');
+const form = document.getElementById('form');
 
 showHide.forEach(eyeIcon =>{
     eyeIcon.addEventListener("click", ()=>{
@@ -46,7 +47,6 @@ showHide.forEach(eyeIcon =>{
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
-	
 	checkInputs();
 });
 
