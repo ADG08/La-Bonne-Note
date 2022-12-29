@@ -6,6 +6,7 @@ const password2 = document.querySelectorAll(".motdepasse2");
 const email = document.querySelectorAll('.email');
 var form = document.test;
 
+/*voir le mdp dans les champs .motdepasse*/
 showHide.forEach(eyeIcon =>{
     eyeIcon.addEventListener("click", ()=>{
         password.forEach(password =>{
@@ -40,16 +41,15 @@ showHide.forEach(eyeIcon =>{
         })
     })
 })
+/*fin voir le mdp dans les champs .motdepasse*/
 
-/*password.addEventListener('input', function(){
-    password2.pattern = '${this.value}';
-})*/
-
+/*lance de la fonction checkInputs*/
 form.addEventListener('submit', e => {
 	e.preventDefault();
 	checkInputs();
 });
 
+/*fonction checkInput*/
 function checkInputs() {   
     if(email == '') {
         setErrorFor(email, "L'email ne peut pas être vide");
@@ -74,6 +74,7 @@ function checkInputs() {
     }
 }
 
+/*fonction error, succes*/
 function setErrorFor(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
@@ -85,7 +86,8 @@ function setSuccessFor(input) {
     const formControl = input.parentElement;
     formControl.className = 'input-box success';
 }
-	
+
+/*est un email*/
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
