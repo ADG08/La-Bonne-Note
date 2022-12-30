@@ -7,7 +7,7 @@ $passw = isset($_POST['passw']) ? ($_POST['passw']) : '';
 
 /*ajout dans la base de donnée*/
 if (count($_POST) == 0){
-    require("register.html");
+    require("register.tpl");
 }else{
     if (!empty($prenom) && !empty($passw) && !empty($email)) {
 

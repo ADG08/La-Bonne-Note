@@ -61,7 +61,9 @@ function checkInputs() {
     
     if(password == '') {
         setErrorFor(password, 'MDP ne peut pas être vide');
-    } else {
+    } else if (password.length < 8){
+        setErrorFor(password, 'Le MDP doit faire minimum 8 caractères');
+    }else {
         setSuccessFor(password);
     }
     
@@ -90,4 +92,8 @@ function setSuccessFor(input) {
 /*est un email*/
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+function isProf(){
+    
 }
