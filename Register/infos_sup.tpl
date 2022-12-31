@@ -46,7 +46,7 @@
         </div>  
     </div>
     
-    <script src="register.js"></script>
+    <script src="infos_sup.js"></script>
     
 </body>
 </html>
