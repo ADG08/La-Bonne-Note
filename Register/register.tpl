@@ -37,6 +37,10 @@
                     <i class="fa-solid fa-lock icon"></i>
                     <i class="fa-regular fa-eye-slash showHide"></i>
                 </div>
+                <div class="prof">
+                    <input type="checkbox">
+                    <h3>Êtes-vous un professeur ?</h3>
+                </div>
                 <div class="input-box boutton">
                     <input type="submit" value="Continuer">
                 </div>

@@ -33,7 +33,7 @@
                     <i class="fa-solid fa-earth-europe"></i>
                 </div>
                 <div class="input-box">
-                    <input type="date" class="naissance" name="naissance" value="<?php echo $naissance; ?>">
+                    <input type="text" class="naissance" placeholder="Format aaaa-mm-jj" name="naissance" value="<?php echo $naissance; ?>">
                     <i class="fa-solid fa-cake-candles"></i>
                 </div>
                 <div class="input-box boutton">
