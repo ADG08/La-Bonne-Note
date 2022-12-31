@@ -4,7 +4,7 @@ const username = document.querySelectorAll("prenom");
 const password = document.querySelectorAll(".motdepasse");
 const password2 = document.querySelectorAll(".motdepasse2");
 const email = document.querySelectorAll('.email');
-var form = document.test;
+//var form = document.formulaire;
 
 /*voir le mdp dans les champs .motdepasse*/
 showHide.forEach(eyeIcon =>{
@@ -78,6 +78,8 @@ function checkInputs() {
 
 /*fonction error, succes*/
 function setErrorFor(input, message) {
+    console.log(input);
+
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
     formControl.className = 'input-box error';

@@ -21,7 +21,7 @@ if (count($_POST) == 0){
             ':passw' => $passw,
         ]);
 
-        $url = "../redirect.php";
+        $url = "infos_sup.php";
         header("Location:" . $url);
     }
 }

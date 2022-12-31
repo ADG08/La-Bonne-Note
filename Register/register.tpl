@@ -19,7 +19,7 @@
             <div class="image">
                 <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?cs=srgb&dl=pexels-pixabay-301920.jpg&fm=jpg" alt="imgInsc">
             </div>
-            <form name="test" action="register.php" method="post">
+            <form name="formulaire" action="register.php" method="post">
                 <div class="input-box">
                     <input type="text" placeholder="Entrer votre nom" name="prenom" value="<?php echo $prenom; ?>" required>
                     <i class="fa-regular fa-user icon"></i>
@@ -36,10 +36,6 @@
                     <input type="password" class="motdepasse2" placeholder="Confirmez mot de passe" required>
                     <i class="fa-solid fa-lock icon"></i>
                     <i class="fa-regular fa-eye-slash showHide"></i>
-                </div>
-                <div class="prof">
-                    <input type="checkbox">
-                    <h3>Êtes-vous un professeur ?</h3>
                 </div>
                 <div class="input-box boutton">
                     <input type="submit" value="Continuer">
