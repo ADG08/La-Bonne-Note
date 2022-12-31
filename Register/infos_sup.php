@@ -15,7 +15,7 @@ $user_actuel->execute();
 if (count($_POST) == 0){
     require("infos_sup.tpl");
 }else{
-    if (!empty($prenom) && !empty($passw) && !empty($email)) {
+    if (!empty($adresse) && !empty($arrondissement) && !empty($naissance)) {
 
         $sql = "insert into infos (user_id, adresse, complement, code, naissance) values (:user_actuel, :adresse, :complement, :arrondissemnt, :naissance)";
 
@@ -29,7 +29,7 @@ if (count($_POST) == 0){
             ':naissance' => $naissance,
         ]);
 
-        $url = "../redirect.php";
+        $url = "../prof.html";
         header("Location:" . $url);
     }
 }
