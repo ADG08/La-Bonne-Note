@@ -21,15 +21,15 @@
             </div>
             <form name="formulaire" action="register.php" method="post">
                 <div class="input-box">
-                    <input type="text" placeholder="Entrer votre nom" name="prenom" value="<?php echo $prenom; ?>" required>
+                    <input type="text" placeholder="Entrez votre nom" name="prenom" value="<?php echo isset($_SESSION['prenom']); ?>" required>
                     <i class="fa-regular fa-user icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" class="email" placeholder="Entrez votre email" name="email" value="<?php echo $email; ?>" required>
+                    <input type="email" class="email" placeholder="Entrez votre email" name="email" value="<?php echo isset($_SESSION['email']); ?>" required>
                     <i class="fa-regular fa-envelope icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" pattern=".{8,}" class="motdepasse" placeholder="Mot de passe" name="passw" value="<?php echo $passw; ?>" required>
+                    <input type="password" pattern=".{8,}" class="motdepasse" placeholder="Mot de passe" name="passw" value="<?php echo isset($_SESSION['passw']); ?>" required>
                     <i class="fa-solid fa-lock icon"></i>
                 </div>
                 <div class="input-box">
