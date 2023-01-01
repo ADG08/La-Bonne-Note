@@ -67,7 +67,7 @@ INSERT INTO `users` (`id`, `nom`, `email`, `passw`, `prof`) VALUES
 --
 
 INSERT INTO `infos` (`user_id`, `adresse`, `complement`, `code`, `naissance`) VALUES
-(1, '213 rue de aaaaah', '', '75014', '2003-18-03'),
+(1, '213 rue de aaaaah', '', '75014', '2003-03-18'),
 (2, '213 rue de yooo', '2eme etage', '75016', '2003-10-23'),
 (3, '213 rue de nooooo', '', '75001', '2003-01-15'),
 (4, '213 rue de nowayyy', 'omgg', '75012', '2003-07-06'),
