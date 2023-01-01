@@ -81,7 +81,8 @@ INSERT INTO `infos` (`user_id`, `adresse`, `complement`, `code`, `naissance`) VA
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD CONSTRAINT `U_Email` UNIQUE(`email`);
 
 --
 -- AUTO_INCREMENT pour la table `users`
