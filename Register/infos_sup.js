@@ -29,14 +29,10 @@ function checkInputs() {
     } else {
         setSuccessFor(arrondissement);
     }
-
-    console.log(naissance.values);
 }
 
 /*fonction error, succes*/
 function setErrorFor(input, message) {
-    console.log(input);
-
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
     formControl.className = 'input-box error';
