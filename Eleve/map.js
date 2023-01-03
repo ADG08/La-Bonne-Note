@@ -71,7 +71,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: "POST",
-        url: "prof.php",
+        url: "recupProf.php",
         success: function (res) {
             console.log(res);
         },
