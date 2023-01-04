@@ -9,7 +9,6 @@
   <title>Login - La Bonne Note</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/ac2f7dafa4.js" crossorigin="anonymous"></script>
-  <script src="login.js"></script>
 </head>
 
 <body>
@@ -35,9 +34,11 @@
         <div class="text">
           <small>Pas encore inscrit(e) ? <a href="../Register/register.html">S'inscrire</a> </small>
         </div>
+	<?php require("login.php");   ?>
       </form>
     </div>
   </div>
+<script src="login.js"></script>
 </body>
 
 </html>
