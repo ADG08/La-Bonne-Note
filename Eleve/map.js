@@ -24,7 +24,7 @@ $(document).ready(function () {
     //
 
     for (let i = 0; i < arrondissements.features.length; i++) {
-        var x = L.geoJson(arrondissements.features[i])
+        L.geoJson(arrondissements.features[i])
             .bindPopup(function (layer) {
                 return layer.feature.properties.l_ar;
             })

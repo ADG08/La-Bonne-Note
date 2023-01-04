@@ -7,7 +7,8 @@ session_start();
 $res = array();
 $result = array();
 
-$id = isset($_SESSION['profil']['id'])?($_SESSION['profil']['id']):'';
+
+$id = isset($_SESSION['profil']['IdUtilisateur'])?($_SESSION['profil']['IdUtilisateur']):'';
 
 
 $stmt = $pdo->query("SELECT * FROM `suivi` where IdProf=$id");
@@ -17,9 +18,10 @@ while ($row = $stmt->fetch()) {
 
 
 foreach($res as &$test){
-    $stmt = $pdo->query("SELECT * FROM `users` where id=$test");
+    $stmt = $pdo->query("SELECT * FROM `utilisateurs` where IdUtilisateur=$test");
     $row = $stmt->fetch();
-    array_push($result, $row['nom']);
+    
+    array_push($result, array("nom"=> $row['Nom'],"prenom"=> $row['Prénom'],"email" => $row['Email']));
 }
 
 echo json_encode($result);
