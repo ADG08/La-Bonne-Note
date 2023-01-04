@@ -1,7 +1,7 @@
 const container = document.querySelector(".container"),
         showHide = document.querySelectorAll(".showHide"),
         password = document.querySelectorAll(".password");
-
+        
         showHide.forEach(eyeIcon =>{
             eyeIcon.addEventListener("click", ()=>{
                 password.forEach(password =>{
@@ -21,3 +21,4 @@ const container = document.querySelector(".container"),
                 })
             })
         })
+    
