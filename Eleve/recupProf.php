@@ -2,10 +2,19 @@
 
 require('../connectSQL.php');
 
+session_start();
 
-$stmt = $pdo->query("SELECT * FROM `users` where prof=1");
+$res = array();
+
+
+$id = isset($_SESSION['profil']['IdUtilisateur'])?($_SESSION['profil']['IdUtilisateur']):'';
+
+
+$stmt = $pdo->query("SELECT * FROM `suivi` where IdProf=$id");
 while ($row = $stmt->fetch()) {
-    echo $row['nom']."\n";
+    array_push($res, $row['IdEleve']."\n");
 }
+
+echo $res;
 
 ?>
