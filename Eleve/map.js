@@ -68,7 +68,7 @@ $(document).ready(function () {
     }
 
     //recup une colonnes des profs php
-
+    /*
     $.ajax({
         type: "POST",
         url: "recupProf.php",
@@ -78,5 +78,5 @@ $(document).ready(function () {
         error: function (err) {
             console.error(err);
         },
-    });
+    });*/
 });

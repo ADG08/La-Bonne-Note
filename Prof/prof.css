@@ -32,8 +32,8 @@ body {
 
     border-radius: 12px;
 
-    
-    
+
+
 }
 
 .rec {
@@ -46,7 +46,7 @@ body {
     background: #474141;
 }
 
-.title{
+.title {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,13 +60,19 @@ body {
     height: 660px;
     overflow: scroll;
 
-    
+    display: flex;
+    flex-direction: column;
 }
 
-.eleves h1 {
+.info {
+
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 150px;
 }
-
 
 
 
@@ -93,4 +99,3 @@ img {
     width: 50px;
     height: 50px;
 }
-
