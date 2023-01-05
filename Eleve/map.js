@@ -108,8 +108,6 @@ $(document).ready(function () {
 
     console.log(x);
 
-<<<<<<< Updated upstream
-=======
     function focus(event) {
 
         for (let y = 0; y < arrondissements.features.length; y++) {
@@ -171,7 +169,8 @@ $(document).ready(function () {
     });
 
 
->>>>>>> Stashed changes
+
+
     //marker
 
     var littleton = L.marker([48.841503, 2.247047], { icon: favoriIcon })
