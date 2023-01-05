@@ -34,7 +34,6 @@
         <div class="text">
           <small>Pas encore inscrit(e) ? <a href="../Register/register.php">S'inscrire</a> </small>
         </div>
-	<?php require("login.php");   ?>
       </form>
     </div>
   </div>

@@ -11,8 +11,8 @@
     $profil = array();
     if(!verif_ident($email,$passw,$profil)){
       require("login.tpl");
-      $msg = "ERREUR BLABLABLA";
-      echo '<script>document.getElementbyId("connexion").innerHTML="TEST"</script>';
+      $msg = "Identifiant ou mot de passe incorrect.";
+      echo '<p style="color: red; position : absolute; margin-top : 22%; margin-right : 30%">'.$msg.'</p>';
      
     }
     else{
