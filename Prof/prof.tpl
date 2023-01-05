@@ -14,11 +14,24 @@
 <body>
   <div class="rec"></div>
   <div class="content">
-    <div class="potential">
-      <h3 class="title">Élèves potentiel</h3>
-      <div class="eleves">
-        
 
+    <div class="potential">
+      <h3 class="title">Demandes</h3>
+      <div class="eleves">
+        <div class="container">
+          <div class="nom"><h3>Bab Isk</h3></div>
+          <div class="icones">
+            <a href=""><img src="../Prof/icones/check.svg" alt="check image to accept"></a>
+            <a href=""><img src="../Prof/icones/cross.svg" alt="check image to refuse"></a>
+          </div>
+        </div>
+        <div class="container">
+          <div class="nom"><h3>Andre LeGoat</h3></div>
+          <div class="icones">
+            <a href=""><img src="../Prof/icones/check.svg" alt="check image to accept"></a>
+            <a href=""><img src="../Prof/icones/cross.svg" alt="check image to refuse"></a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -27,6 +40,9 @@
       <div class="eleves">
       </div>
     </div>
+
+    <button class="boutton">Déconnexion</button>
+
   </div>
 </body>
 
