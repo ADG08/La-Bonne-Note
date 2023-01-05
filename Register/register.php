@@ -35,7 +35,6 @@ if (count($_POST) == 0){
         $stmt = $pdo->query("INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrondissement`, `Naissance`, `Prof`) VALUES ('$Id', '$adresse', '$complement', '$arrondissement', '$naissance', '$prof')");
 
 
-        
         $url = "../redirect.php";
         header("Location:" . $url);
     }
