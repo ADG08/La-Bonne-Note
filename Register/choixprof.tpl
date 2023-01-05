@@ -21,8 +21,15 @@
                 <p>yo </p>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Entrez votre nom" name="nom" value="<?php echo $nom; ?>" required>
-                    <i class="fa-regular fa-user icon"></i>
+                    <select name="pets" id="pet-select">
+                        <?php 
+                            $stmt = $pdo->query("SELECT * FROM `matière`");
+                            $row = $stmt->fetch();
+                            $Id = $row['IdUtilisateur'];
+                        
+                        
+                        ?>
+                    </select>
                 </div>
                 <div class="input-box">
                     <input type="text" placeholder="Entrez votre prenom" name="prenom" value="<?php echo $prenom; ?>" required>
@@ -62,10 +69,7 @@
                     <h3>Êtes-vous un professeur ?</h3>
                 </div>
                 <div class="input-box boutton">
-                    <input type="submit" value="Continuer">
-                </div>
-                <div class="text">
-                    <h3>Déjà un compte ? <a href="../Login/login.php">Se connecter</a> </h3>
+                    <input type="submit" value="Valider ">
                 </div>
             </form>
         </div>  

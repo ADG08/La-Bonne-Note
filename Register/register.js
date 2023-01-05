@@ -6,6 +6,7 @@ const password2 = document.querySelectorAll(".motdepasse2");
 const email = document.querySelectorAll('.email');
 //var form = document.formulaire;
 
+
 /*voir le mdp dans les champs .motdepasse*/
 showHide.forEach(eyeIcon =>{
     eyeIcon.addEventListener("click", ()=>{
