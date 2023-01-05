@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 04 Janvier 2023 à 23:12
+-- Généré le :  Jeu 05 Janvier 2023 à 20:45
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -36,7 +36,8 @@ CREATE TABLE `favori` (
 --
 
 INSERT INTO `favori` (`IdProf`, `IdEleve`) VALUES
-(1, 5);
+(1, 2),
+(4, 2);
 
 -- --------------------------------------------------------
 
@@ -67,8 +68,8 @@ CREATE TABLE `infosup` (
   `IdUtilisateur` int(11) NOT NULL,
   `Adresse` varchar(50) NOT NULL,
   `Complément` varchar(50) NOT NULL,
-  `Arrandissement` int(11) NOT NULL,
-  `Date de naissance` date NOT NULL,
+  `Arrondissement` int(11) NOT NULL,
+  `Naissance` date NOT NULL,
   `Prof` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -76,12 +77,16 @@ CREATE TABLE `infosup` (
 -- Contenu de la table `infosup`
 --
 
-INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrandissement`, `Naissance`, `Prof`) VALUES
-(1, '27 Rue Stéphane Proust', '', 16, '2003-08-08', 1),
-(2, '2 villa de la réunion', '', 16, '2003-10-23', 0),
-(3, 'babville', '', 16, '2003-01-01', 1),
+INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrondissement`, `Naissance`, `Prof`) VALUES
+(1, '2 Villa de la réunion', '', 15, '2003-08-08', 1),
+(2, '2 Villa de la réunion', '', 16, '2003-10-23', 0),
+(3, '142 Avenue de versaille', '', 16, '2003-01-01', 1),
 (4, 'babville', '', 16, '2003-01-01', 1),
-(5, 'tacville', '', 16, '2003-01-01', 0);
+(5, 'tacville', '', 16, '2003-01-01', 0),
+(8, '3 rue des jean', '', 75015, '2023-01-26', 0),
+(11, '3 rue des janna', '', 75016, '2023-01-26', 1),
+(12, '3 rue des janna', '', 75016, '2023-01-26', 1),
+(13, '3 rue des janna', '', 75016, '2023-01-26', 0);
 
 -- --------------------------------------------------------
 
@@ -94,6 +99,15 @@ CREATE TABLE `localisation` (
   `Longitude` double NOT NULL,
   `Latitude` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `localisation`
+--
+
+INSERT INTO `localisation` (`IdUtilisateur`, `Longitude`, `Latitude`) VALUES
+(1, 2.2672433, 48.8426489),
+(3, 2.2665383, 48.8416802),
+(4, 2.2665383, 48.8426489);
 
 -- --------------------------------------------------------
 
@@ -204,7 +218,15 @@ INSERT INTO `utilisateurs` (`IdUtilisateur`, `Nom`, `Prénom`, `Email`, `Passwor
 (2, 'Hazami', 'Sofia', 'sofia@gmail.com', 'sofia'),
 (3, 'Isk', 'Bab', 'bab@gmail.com', 'bab'),
 (4, 'test1', 't', 't@gmail.com', 't'),
-(5, 'tac', 'tac', 'tac@gmail.com', 'tac');
+(5, 'tac', 'tac', 'tac@gmail.com', 'tac'),
+(6, 'bla', 'blo', 'blo@gmail.com', '12345678'),
+(7, 'blazenfbzkjebvk', 'bloaefa', 'blocab@gmail.com', '123456789'),
+(8, 'Moustache', 'Jean', 'jean@gmail.com', 'jeanjean'),
+(9, 'Moustache', 'Jean', 'jean@gmail.com', 'jeanjean'),
+(10, 'Moustache', 'Jean', 'jean@gmail.com', 'jeanjean'),
+(11, 'Moustache', 'Janna', 'janna@gmail.com', 'jannajanna'),
+(12, 'Moustache', 'joaenfi', 'joaenfi@gmail.com', 'tructruc'),
+(13, 'Moustache', 'paf', 'paf@gmail.com', 'pafpafpaf');
 
 --
 -- Index pour les tables exportées
@@ -282,7 +304,7 @@ ALTER TABLE `niveau`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `IdUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IdUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Contraintes pour les tables exportées
 --
