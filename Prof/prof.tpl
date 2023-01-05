@@ -12,7 +12,11 @@
 </head>
 
 <body>
-  <div class="rec"></div>
+  <div class="rec">
+    <button class="boutton">Profil</button>
+    <button class="boutton">Carte</button>
+    <button class="boutton">Déconnexion</button>
+  </div>
   <div class="content">
 
     <div class="potential">
@@ -40,8 +44,6 @@
       <div class="eleves">
       </div>
     </div>
-
-    <button class="boutton">Déconnexion</button>
 
   </div>
 </body>
