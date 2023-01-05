@@ -15,21 +15,22 @@
 
     <div class="container">
         <h2>Inscription</h2>
-        <div class="separer">
-            <div class="image">
-                <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?cs=srgb&dl=pexels-pixabay-301920.jpg&fm=jpg" alt="imgInsc">
-            </div>
+        <div class="fromu">
             <form name="formulaire" action="register.php" method="post">
                 <div class="input-box">
-                    <input type="text" placeholder="Entrez votre nom" name="prenom" value="<?php echo isset($_SESSION['prenom']); ?>" required>
+                    <input type="text" placeholder="Entrez votre nom" name="nom" value="<?php echo $nom; ?>" required>
                     <i class="fa-regular fa-user icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" class="email" placeholder="Entrez votre email" name="email" value="<?php echo isset($_SESSION['email']); ?>" required>
+                    <input type="text" placeholder="Entrez votre prenom" name="prenom" value="<?php echo $prenom; ?>" required>
+                    <i class="fa-regular fa-user icon"></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" class="email" placeholder="Entrez votre email" name="email" value="<?php echo $email; ?>" required>
                     <i class="fa-regular fa-envelope icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" pattern=".{8,}" class="motdepasse" placeholder="Mot de passe" name="passw" value="<?php echo isset($_SESSION['passw']); ?>" required>
+                    <input type="password" pattern=".{8,}" class="motdepasse" placeholder="Mot de passe" name="passw" value="<?php echo $passw; ?>" required>
                     <i class="fa-solid fa-lock icon"></i>
                 </div>
                 <div class="input-box">
@@ -37,8 +38,24 @@
                     <i class="fa-solid fa-lock icon"></i>
                     <i class="fa-regular fa-eye-slash showHide"></i>
                 </div>
+                 <div class="input-box">
+                    <input type="text" class="adresse" placeholder="Adresse" name="adresse" value="<?php echo $adresse; ?>">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="complement" placeholder="Complement d'adresse" name="complement" value="<?php echo $complement; ?>">
+                    <i class="fa-solid fa-house-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="arrondissement" placeholder="Arrondissement (ex: 01)" name="arrondissement" value="<?php echo $arrondissement; ?>" required minlength="5" maxlength="5">
+                    <i class="fa-solid fa-earth-europe"></i>
+                </div>
+                <div class="input-box">
+                    <input type="date" class="naissance" name="naissance" value="<?php echo $naissance; ?>">
+                    <i class="fa-solid fa-cake-candles"></i>
+                </div>
                 <div class="prof">
-                    <input type="checkbox">
+                    <input type="checkbox" name="check1">
                     <h3>Êtes-vous un professeur ?</h3>
                 </div>
                 <div class="input-box boutton">
