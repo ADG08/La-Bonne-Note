@@ -11,6 +11,7 @@
     $profil = array();
     if(!verif_ident($email,$passw,$profil)){
       $msg = "ERREUR BLABLABLA";
+      echo '<small style = "color: red; position : absolute;">'.$msg.'</small>';
       require("login.tpl");
     }
     else{
