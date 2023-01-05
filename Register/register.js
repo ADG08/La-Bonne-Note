@@ -4,7 +4,9 @@ const username = document.querySelectorAll("prenom");
 const password = document.querySelectorAll(".motdepasse");
 const password2 = document.querySelectorAll(".motdepasse2");
 const email = document.querySelectorAll('.email');
+//var form = document.formulaire;
 
+/*voir le mdp dans les champs .motdepasse*/
 showHide.forEach(eyeIcon =>{
     eyeIcon.addEventListener("click", ()=>{
         password.forEach(password =>{
@@ -39,17 +41,15 @@ showHide.forEach(eyeIcon =>{
         })
     })
 })
+/*fin voir le mdp dans les champs .motdepasse*/
 
-/* password.addEventListener('input', function(){
-    password2.pattern = '${this.value}';
-}) */
-
+/*lance de la fonction checkInputs*/
 form.addEventListener('submit', e => {
 	e.preventDefault();
-	
 	checkInputs();
 });
 
+/*fonction checkInput*/
 function checkInputs() {   
     if(email == '') {
         setErrorFor(email, "L'email ne peut pas être vide");
@@ -61,7 +61,9 @@ function checkInputs() {
     
     if(password == '') {
         setErrorFor(password, 'MDP ne peut pas être vide');
-    } else {
+    } else if (password.length < 8){
+        setErrorFor(password, 'Le MDP doit faire minimum 8 caractères');
+    }else {
         setSuccessFor(password);
     }
     
@@ -74,7 +76,10 @@ function checkInputs() {
     }
 }
 
+/*fonction error, succes*/
 function setErrorFor(input, message) {
+    console.log(input);
+
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
     formControl.className = 'input-box error';
@@ -85,7 +90,12 @@ function setSuccessFor(input) {
     const formControl = input.parentElement;
     formControl.className = 'input-box success';
 }
-	
+
+/*est un email*/
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+function isProf(){
+    
 }
