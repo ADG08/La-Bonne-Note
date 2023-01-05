@@ -69,7 +69,7 @@ CREATE TABLE `infosup` (
 -- Contenu de la table `infosup`
 --
 
-INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrandissement`, `Date de naissance`, `Prof`) VALUES
+INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrandissement`, `Naissance`, `Prof`) VALUES
 (1, '27 Rue Stéphane Proust', '', 16, '2003-08-08', 1),
 (2, '2 villa de la réunion', '', 16, '2003-10-23', 0);
 
