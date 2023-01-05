@@ -24,7 +24,7 @@ $(document).ready(function () {
     //
 
     for (let i = 0; i < arrondissements.features.length; i++) {
-        var x = L.geoJson(arrondissements.features[i])
+        L.geoJson(arrondissements.features[i])
             .bindPopup(function (layer) {
                 return layer.feature.properties.l_ar;
             })
@@ -68,15 +68,15 @@ $(document).ready(function () {
     }
 
     //recup une colonnes des profs php
-
+    /*
     $.ajax({
         type: "POST",
-        url: "prof.php",
+        url: "recupProf.php",
         success: function (res) {
             console.log(res);
         },
         error: function (err) {
-            consol.log(err);
+            console.error(err);
         },
-    });
+    });*/
 });

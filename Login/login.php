@@ -11,6 +11,7 @@
     $profil = array();
     if(!verif_ident($email,$passw,$profil)){
       $msg = "ERREUR BLABLABLA";
+      echo '<small style = "color: red; position : absolute;">'.$msg.'</small>';
       require("login.tpl");
     }
     else{
@@ -22,7 +23,7 @@
 
   function verif_ident($email,$passw,array &$profil) {
     require('../connectSQL.php');
-    $sql="SELECT * FROM `users` where email=:email and passw=:passw";
+    $sql="SELECT * FROM `utilisateurs` where Email=:email and Password=:passw";
     try{
       $commande = $pdo->prepare($sql);
       $commande->bindParam(':email',$email);
