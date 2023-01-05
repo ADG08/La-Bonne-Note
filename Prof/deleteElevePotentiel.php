@@ -16,7 +16,6 @@ $IdEleve = $row['IdUtilisateur'];
 
 $stmt = $pdo->query("DELETE FROM potentiel WHERE IdEleve = $IdEleve");
 
-echo "fait";
 
 
 ?>

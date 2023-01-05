@@ -10,11 +10,11 @@ $res = array();
 $id = isset($_SESSION['profil']['IdUtilisateur'])?($_SESSION['profil']['IdUtilisateur']):'';
 
 
-$stmt = $pdo->query("SELECT * FROM `suivi` where IdProf=$id");
+$stmt = $pdo->query("SELECT * FROM `infosup`,`favori`,`potentiel`,`suivi` WHERE infosup.Prof = 1 AND NOT favori.IdProf = infosup.IdUtilisateur AND NOT potentiel.IdProf = infosup.IdUtilisateur AND NOT suivi.IdProf = infosup.IdUtilisateur");
 while ($row = $stmt->fetch()) {
-    array_push($res, $row['IdEleve']."\n");
+    array_push($res, $row['']);
 }
 
-echo $res;
+echo json_encode($res);
 
 ?>
