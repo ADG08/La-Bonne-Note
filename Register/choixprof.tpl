@@ -7,19 +7,21 @@
     <title>Inscription - La Bonne Note</title>
     
     <link rel="shortcut icon" href="" type="image/x-icon" />
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="choixprof.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ac2f7dafa4.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <div class="container">
-        <h2>Inscription</h2>
-        <div class="formu">
+        <h2>Matière et niveau</h2>
+        
+        <div class="separer">
+            <div class="image">
+                <img src="./img/study.jpg" alt="">
+            </div>
+
             <form name="formulaire" action="register.php" method="post">
-                <div class="input-box" id="erreur">
-                <p>yo </p>
-                </div>
                 <div class="input-box">
                     <p>Choisissez la matière que vous souhaitez enseigner
                     </p>
@@ -54,8 +56,6 @@
             </form>
         </div>  
     </div>
-    
-    <script src="register.js"></script>
     
 </body>
 </html>

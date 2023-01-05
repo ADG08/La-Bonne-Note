@@ -50,7 +50,7 @@
                     <i class="fa-solid fa-house-user"></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" class="arrondissement" placeholder="Arrondissement (ex: 01)" name="arrondissement" value="<?php echo $arrondissement; ?>" required minlength="5" maxlength="5">
+                    <input type="text" class="arrondissement" placeholder="Arrondissement (ex: 01)" name="arrondissement" value="<?php echo $arrondissement; ?>" required minlength="2" maxlength="2">
                     <i class="fa-solid fa-earth-europe"></i>
                 </div>
                 <div class="input-box">
