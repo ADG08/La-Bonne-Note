@@ -20,7 +20,8 @@ $(document).ready(function () {
             console.error(err);
         },
     });
-
+    
+    
 
     $.ajax({
         type: "POST",
@@ -32,10 +33,14 @@ $(document).ready(function () {
             console.log(resultat);
 
             resultat.forEach(element => {
-                var leReste = '</div><div class="imgContainer"> <img src="https://t3.ftcdn.net/jpg/00/26/43/56/360_F_26435684_nI2nmc5VtQ0N3vbBld4DQFGSXN0G54vj.jpg" alt="" class="valider" onClick="valider()"> <img src="https://cdn-icons-png.flaticon.com/512/59/59254.png" alt=""></img></div>'
+                var leReste = '</div><div class="imgContainer"> `<img src="https://t3.ftcdn.net/jpg/00/26/43/56/360_F_26435684_nI2nmc5VtQ0N3vbBld4DQFGSXN0G54vj.jpg" alt="" class="valider"> <img src="https://cdn-icons-png.flaticon.com/512/59/59254.png" alt="" class="del"></img></div>'
 
-                var result = firstContentSuivie + element.nom + " " + element.prenom + lastContentSuivie + "<p>" + element.email + "</p>" + leReste;
+                var result = firstContentSuivie + element.nom + " " + element.prenom + lastContentSuivie + "<p class='email'>" + element.email + "</p>" + leReste;
                 $(".potential .eleves").append(result);
+
+                $('.valider').click(valider)
+                $('.del').click(del)
+                
 
             });
         },
@@ -44,11 +49,45 @@ $(document).ready(function () {
         },
     });
 
+    
+    
     function valider() {
-        console.log("ouaiisss");
+        var resu = $(".email").text()
+        $.ajax({
+            type: "POST",
+            url: "ajoutEleveSuivi.php",
+            data: {
+                "Email": resu
+              },
+            success: function (res) {
+                
+                console.log(res)
+                
+            },
+            error: function (err) {
+                console.error(err);
+            },
+        });
 
     }
 
+    function del(){
+        var resu = $(".email").text()
+        $.ajax({
+            type: "POST",
+            url: "deleteElevePotentiel.php",
+            data: {
+                "Email": resu
+              },
+            success: function (res) {
+                console.log(res)
+                
+            },
+            error: function (err) {
+                console.error(err);
+            },
+        });
+    }
 
 
 

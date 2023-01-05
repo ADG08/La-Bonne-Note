@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 04 Janvier 2023 à 16:28
+-- Généré le :  Mer 04 Janvier 2023 à 23:12
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -30,6 +30,13 @@ CREATE TABLE `favori` (
   `IdProf` int(11) NOT NULL,
   `IdEleve` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `favori`
+--
+
+INSERT INTO `favori` (`IdProf`, `IdEleve`) VALUES
+(1, 5);
 
 -- --------------------------------------------------------
 
@@ -71,7 +78,10 @@ CREATE TABLE `infosup` (
 
 INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrandissement`, `Date de naissance`, `Prof`) VALUES
 (1, '27 Rue Stéphane Proust', '', 16, '2003-08-08', 1),
-(2, '2 villa de la réunion', '', 16, '2003-10-23', 0);
+(2, '2 villa de la réunion', '', 16, '2003-10-23', 0),
+(3, 'babville', '', 16, '2003-01-01', 1),
+(4, 'babville', '', 16, '2003-01-01', 1),
+(5, 'tacville', '', 16, '2003-01-01', 0);
 
 -- --------------------------------------------------------
 
@@ -146,6 +156,13 @@ CREATE TABLE `potentiel` (
   `IdEleve` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `potentiel`
+--
+
+INSERT INTO `potentiel` (`IdProf`, `IdEleve`) VALUES
+(1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -156,6 +173,13 @@ CREATE TABLE `suivi` (
   `IdProf` int(11) NOT NULL,
   `IdEleve` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `suivi`
+--
+
+INSERT INTO `suivi` (`IdProf`, `IdEleve`) VALUES
+(3, 2);
 
 -- --------------------------------------------------------
 
@@ -177,7 +201,10 @@ CREATE TABLE `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`IdUtilisateur`, `Nom`, `Prénom`, `Email`, `Password`) VALUES
 (1, 'Domingues Ramos', 'André', 'andre@gmail.com', 'andre'),
-(2, 'Hazami', 'Sofia', 'sofia@gmail.com', 'sofia');
+(2, 'Hazami', 'Sofia', 'sofia@gmail.com', 'sofia'),
+(3, 'Isk', 'Bab', 'bab@gmail.com', 'bab'),
+(4, 'test1', 't', 't@gmail.com', 't'),
+(5, 'tac', 'tac', 'tac@gmail.com', 'tac');
 
 --
 -- Index pour les tables exportées
@@ -255,7 +282,7 @@ ALTER TABLE `niveau`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `IdUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IdUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Contraintes pour les tables exportées
 --
