@@ -1,5 +1,9 @@
-var firstContentSuivie = '<div class="container"><div class="info"> <h2>'
-var lastContentSuivie = '</h2>'
+var firstContentSuivie = '<div class="container"><div class="nom"><h3>'
+var lastContentSuivie = '</h3>'
+
+
+
+
 
 $(document).ready(function () {
 
@@ -11,7 +15,7 @@ $(document).ready(function () {
             var resultat = JSON.parse(res)
 
             resultat.forEach(element => {
-                var result = firstContentSuivie + element.nom + " " + element.prenom + lastContentSuivie;
+                var result = firstContentSuivie + element.nom + " " + element.prenom + "<br/>" + element.email + lastContentSuivie;
                 $(".suivie .eleves").append(result);
 
             });
@@ -20,8 +24,8 @@ $(document).ready(function () {
             console.error(err);
         },
     });
-    
-    
+
+
 
     $.ajax({
         type: "POST",
@@ -33,14 +37,14 @@ $(document).ready(function () {
             console.log(resultat);
 
             resultat.forEach(element => {
-                var leReste = '</div><div class="imgContainer"> `<img src="https://t3.ftcdn.net/jpg/00/26/43/56/360_F_26435684_nI2nmc5VtQ0N3vbBld4DQFGSXN0G54vj.jpg" alt="" class="valider"> <img src="https://cdn-icons-png.flaticon.com/512/59/59254.png" alt="" class="del"></img></div>'
+                var leReste = '</div><div class="icones"><img src="../Prof/icones/check.svg" alt="check image to accept" class="valider"><img src="../Prof/icones/cross.svg" alt="check image to refuse" class="del"></div></div >'
 
                 var result = firstContentSuivie + element.nom + " " + element.prenom + lastContentSuivie + "<p class='email'>" + element.email + "</p>" + leReste;
                 $(".potential .eleves").append(result);
 
                 $('.valider').click(valider)
                 $('.del').click(del)
-                
+
 
             });
         },
@@ -49,8 +53,8 @@ $(document).ready(function () {
         },
     });
 
-    
-    
+
+
     function valider() {
         var resu = $(".email").text()
         $.ajax({
@@ -58,11 +62,11 @@ $(document).ready(function () {
             url: "ajoutEleveSuivi.php",
             data: {
                 "Email": resu
-              },
+            },
             success: function (res) {
-                
+                window.location.reload()
                 console.log(res)
-                
+
             },
             error: function (err) {
                 console.error(err);
@@ -71,17 +75,18 @@ $(document).ready(function () {
 
     }
 
-    function del(){
+    function del() {
         var resu = $(".email").text()
         $.ajax({
             type: "POST",
             url: "deleteElevePotentiel.php",
             data: {
                 "Email": resu
-              },
+            },
             success: function (res) {
+                window.location.reload()
                 console.log(res)
-                
+
             },
             error: function (err) {
                 console.error(err);
