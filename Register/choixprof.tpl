@@ -21,53 +21,33 @@
                 <p>yo </p>
                 </div>
                 <div class="input-box">
-                    <select name="pets" id="pet-select">
-                        <?php 
+                    <p>Choisissez la matière que vous souhaitez enseigner
+                    </p>
+                    <select>
+                        <?php
+                            require "../connectSQL.php";
                             $stmt = $pdo->query("SELECT * FROM `matière`");
-                            $row = $stmt->fetch();
-                            $Id = $row['IdUtilisateur'];
-                        
-                        
+                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                echo "<option value='" . $row['Nom'] . "'>" . $row['Nom'] . "</option>";
+                            }
                         ?>
                     </select>
                 </div>
+
                 <div class="input-box">
-                    <input type="text" placeholder="Entrez votre prenom" name="prenom" value="<?php echo $prenom; ?>" required>
-                    <i class="fa-regular fa-user icon"></i>
+                    <p>Choisissez le niveau de vos cours 
+                    </p>
+                    <select>
+                        <?php
+                            require "../connectSQL.php";
+                            $stmt = $pdo->query("SELECT * FROM `niveau`");
+                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                echo "<option value='" . $row['Nom'] . "'>" . $row['Nom'] . "</option>";
+                            }
+                        ?>
+                    </select>
                 </div>
-                <div class="input-box">
-                    <input type="email" class="email" placeholder="Entrez votre email" name="email" value="<?php echo $email; ?>" required>
-                    <i class="fa-regular fa-envelope icon"></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" pattern=".{8,}" class="motdepasse" placeholder="Mot de passe" name="passw" value="<?php echo $passw; ?>" required>
-                    <i class="fa-solid fa-lock icon"></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" class="motdepasse2" placeholder="Confirmez mot de passe" required>
-                    <i class="fa-solid fa-lock icon"></i>
-                    <i class="fa-regular fa-eye-slash showHide"></i>
-                </div>
-                 <div class="input-box">
-                    <input type="text" class="adresse" placeholder="Adresse" name="adresse" value="<?php echo $adresse; ?>">
-                    <i class="fa-solid fa-location-dot"></i>
-                </div>
-                <div class="input-box">
-                    <input type="text" class="complement" placeholder="Complement d'adresse" name="complement" value="<?php echo $complement; ?>">
-                    <i class="fa-solid fa-house-user"></i>
-                </div>
-                <div class="input-box">
-                    <input type="text" class="arrondissement" placeholder="Arrondissement (ex: 01)" name="arrondissement" value="<?php echo $arrondissement; ?>" required minlength="5" maxlength="5">
-                    <i class="fa-solid fa-earth-europe"></i>
-                </div>
-                <div class="input-box">
-                    <input type="date" class="naissance" name="naissance" value="<?php echo $naissance; ?>">
-                    <i class="fa-solid fa-cake-candles"></i>
-                </div>
-                <div class="prof">
-                    <input type="checkbox" name="check1">
-                    <h3>Êtes-vous un professeur ?</h3>
-                </div>
+                
                 <div class="input-box boutton">
                     <input type="submit" value="Valider ">
                 </div>
