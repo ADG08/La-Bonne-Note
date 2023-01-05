@@ -10,13 +10,9 @@ body{
     background: #4C956C;
 }
 
-p{
-    display: inline-flex;
-}
-
 .container{
     width: 100%;
-    max-width: 900px;
+    max-width: 800px;
     height: auto;
     background: #FEFEE3;
     padding: 34px;
