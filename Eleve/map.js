@@ -1,13 +1,4 @@
 $(document).ready(function () {
-    var b = true;
-    var tabCOORD = [
-        [48.84197804895268, 2.267719848410252],
-        [48.84174503359729, 2.267988069311741],
-        [48.841540261632446, 2.2689000203768046],
-        [48.8419427436655, 2.2693291738191874],
-        [48.84254999113797, 2.2687820031801493],
-        [48.84197804895268, 2.267719848410252],
-    ];
 
     var map = L.map("maDiv").setView([48.856614, 2.3522219], 12);
 
@@ -22,16 +13,80 @@ $(document).ready(function () {
     ).addTo(map);
 
     //
+    var x = []
+    var index = []
+
+
 
     for (let i = 0; i < arrondissements.features.length; i++) {
-        L.geoJson(arrondissements.features[i])
-            .bindPopup(function (layer) {
-                return layer.feature.properties.l_ar;
-            })
-            .addTo(map);
+        var v = L.geoJson(arrondissements.features[i])
 
-        console.log(arrondissements.features[i]);
+        v.bindPopup(function (layer) {
+            return layer.feature.properties.l_ar;
+        }).addTo(map);
+
+
+        index.push(arrondissements.features[i].properties.c_ar)
+
+        for (let y = 0; y < index.length; y++) {
+
+            if (index[y] == arrondissements.features[i].properties.c_ar) {
+
+                $(v).click({ param: y }, focus)
+            }
+
+        }
+
+
+        x.push(v)
+
     }
+    for (let y = 0; y < arrondissements.features.length; y++) {
+
+        x[y].setStyle({ fillColor: '#68D89B', weight: 1, color: '#2C6E49', opacity: 1 })
+    }
+
+    console.log(index)
+    function focus(event) {
+
+        for (let y = 0; y < arrondissements.features.length; y++) {
+
+            x[y].setStyle({ fillColor: '#68D89B', weight: 1, color: '#2C6E49', opacity: 1 })
+
+
+            x[y].setStyle({ opacity: 0.4 })
+
+            if (y != event.data.param) {
+
+                x[event.data.param].setStyle({ opacity: 1 })
+            }
+
+        }
+        x[event.data.param].setStyle({ fillColor: '#BCFFDB', weight: 2, color: '#2C6E49', opacity: 1 })
+
+        $.ajax({
+            type: "POST",
+            url: "recupProf.php",
+            data: {
+                "arr": index[event.data.param]
+            },
+            success: function (res) {
+
+                JSON.parse(res).forEach(element => {
+                    console.log(element)
+                    var x = L.marker([element.Latitude, element.Longitude])
+                        .bindPopup(element.Nom + " " + element.Prénom)
+                        .addTo(map)
+                        .on("click", clickZoom)
+                });
+            },
+            error: function (err) {
+                console.error(err);
+            },
+        });
+    }
+
+    console.log(x);
 
     //marker
 
@@ -67,16 +122,4 @@ $(document).ready(function () {
         map.panTo(this.getLatLng());
     }
 
-    //recup une colonnes des profs php
-    /*
-    $.ajax({
-        type: "POST",
-        url: "recupProf.php",
-        success: function (res) {
-            console.log(res);
-        },
-        error: function (err) {
-            console.error(err);
-        },
-    });*/
 });

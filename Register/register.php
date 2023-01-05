@@ -26,11 +26,14 @@ if (count($_POST) == 0){
     require("register.tpl");
 }else{
     if (!empty($prenom) && !empty($passw) && !empty($email)) {
-        $stmt = $pdo->query("INSERT INTO utilisateurs (Nom, Prénom, Email, Password) VALUES ('$nom', '$prenom', '$email', '$passw')");
-        $stmt = $pdo->query("SELECT * FROM utilisateurs where Email='$email'");
+        $stmt = $pdo->query("INSERT INTO utilisateurs ( `IdUtilisateur`,`Nom`, `Prénom`, `Email`, `Password`) VALUES (NULL , '$nom', '$prenom', '$email', '$passw')");
+
+        $stmt = $pdo->query("SELECT * FROM `utilisateurs` where Email='$email'");
         $row = $stmt->fetch();
-        $Idinfo = $row['IdUtilisateur'];
-        $stmt = $pdo->query("INSERT INTO infosup (IdUtilisateur, Adresse, Complément, Arrandissement, Naissance, Prof) VALUES ('$Idinfo','$adresse', '$complement', '$arrondissement', '$naissance', '$prof')");
+        $Id = $row['IdUtilisateur'];
+
+        $stmt = $pdo->query("INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrondissement`, `Naissance`, `Prof`) VALUES ('$Id', '$adresse', '$complement', '$arrondissement', '$naissance', '$prof')");
+
 
         $url = "../redirect.php";
         header("Location:" . $url);

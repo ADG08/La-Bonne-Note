@@ -17,7 +17,7 @@
     <div class="potential">
       <h3 class="title">Élèves potentiel</h3>
       <div class="eleves">
-
+        
 
       </div>
     </div>

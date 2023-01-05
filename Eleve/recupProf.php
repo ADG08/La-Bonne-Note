@@ -2,10 +2,36 @@
 
 require('../connectSQL.php');
 
+session_start();
 
-$stmt = $pdo->query("SELECT * FROM `users` where prof=1");
+$res = array();
+$result = array();
+
+
+$id = isset($_SESSION['profil']['IdUtilisateur'])?($_SESSION['profil']['IdUtilisateur']):'';
+
+$arr = $_REQUEST["arr"];
+
+
+$stmt = $pdo->query("SELECT * FROM `infosup`,`favori` WHERE infosup.Prof = 1 AND infosup.Arrondissement = $arr AND NOT favori.IdProf = infosup.IdUtilisateur");
 while ($row = $stmt->fetch()) {
-    echo $row['nom']."\n";
+    array_push($res, $row['IdUtilisateur']);
 }
+
+if (empty($res)) {
+    $stmt = $pdo->query("SELECT * FROM `infosup` WHERE infosup.Prof = 1 AND infosup.Arrondissement = $arr");
+    while ($row = $stmt->fetch()) {
+        array_push($res, $row['IdUtilisateur']);
+    }
+}
+
+foreach($res as &$x){
+    $stmt = $pdo->query("SELECT * FROM utilisateurs, infosup, localisation WHERE infosup.IdUtilisateur = '$x' AND  infosup.IdUtilisateur =  utilisateurs.IdUtilisateur AND utilisateurs.IdUtilisateur = localisation.IdUtilisateur");
+    while ($row = $stmt->fetch()) {
+        array_push($result, $row);
+    }
+}
+
+echo json_encode($result);
 
 ?>
