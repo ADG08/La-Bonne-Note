@@ -34,8 +34,12 @@ if (count($_POST) == 0){
 
         $stmt = $pdo->query("INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrondissement`, `Naissance`, `Prof`) VALUES ('$Id', '$adresse', '$complement', '$arrondissement', '$naissance', '$prof')");
 
-
-        $url = "../Login/login.php";
+        if ($prof == 1 ){
+            $url = "choixprof.php";
+        }else{
+            $url = "../Login/login.php";
+        }
+        
         header("Location:" . $url);
     }
 }
