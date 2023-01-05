@@ -10,40 +10,35 @@ body {
     align-items: center;
     min-height: 100vh;
 
-    background: #d9d9d9;
+    background: #4C956C;
 }
 
-.content {
+.content { /*Boite des deux listes d'élèves*/
     display: flex;
     justify-content: center;
     align-items: center;
 
     gap: 116px;
     margin-left: 275px;
-
-
 }
 
-.potential,
-.suivie {
-    background-color: #F2F2F2;
+.potential, 
+.suivie { /*les deux listes d'élèves*/
+    background-color: #FEFEE3;
     width: 400px;
     height: 700px;
 
     border-radius: 12px;
-
-
-
 }
 
-.rec {
+.rec { /*partie retour vers la map(à gauche)*/
     position: absolute;
     width: 275px;
     height: 100vh;
     left: 0px;
     top: 0px;
 
-    background: #474141;
+    background: #2C6E49;
 }
 
 .title {
@@ -51,19 +46,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #C6C6C6;
+    background-color: #D68C45;
+    color: #FEFEE3;
     height: 40px;
     border-radius: 12px 12px 0px 0px;
 }
 
-.eleves {
+.eleves { /*div pour ranger les élèves*/
     height: 660px;
     overflow: scroll;
 
     display: flex;
     flex-direction: column;
 }
-
+/*
 .info {
 
     margin-left: 20px;
@@ -73,14 +69,16 @@ body {
     align-items: center;
     width: 150px;
 }
+*/
 
 
-
-.eleves .container {
+.eleves .container { /*div pour chaque élèves*/
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 14px 0px;
+    background-color: #fde0d796;
+    border-radius: 40px;
 }
 
 
@@ -98,4 +96,11 @@ body {
 img {
     width: 50px;
     height: 50px;
+}
+
+
+/*****************************************/
+.nom {
+   margin: 20px; 
+   color: #c07f42;
 }
