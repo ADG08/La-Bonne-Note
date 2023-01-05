@@ -104,3 +104,22 @@ img {
    margin: 20px; 
    color: #c07f42;
 }
+.boutton{
+    size: 20px;
+    padding: 15px;
+
+    color:#333;
+    letter-spacing: 1px;
+
+    background: #FFC9B9;
+    border :#D68C45 solid 1px;
+    border-radius: 6px;
+
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+.boutton:hover{
+    background: #dea99a;
+    color: #333;
+}
