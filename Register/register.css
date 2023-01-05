@@ -16,7 +16,7 @@ body{
 /*container*/
 .container{
     width: 100%;
-    max-width: 900px;
+    max-width: 500px;
     height: auto;
     background: #FEFEE3;
     padding: 34px;
