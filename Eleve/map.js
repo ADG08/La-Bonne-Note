@@ -98,14 +98,28 @@ $(document).ready(function () {
 
         var result = JSON.parse(res);
         result.forEach((element) => {
-          var x = L.marker([element.Latitude, element.Longitude])
-            .bindPopup( "<button class=" + "suivie" + ">" + "demande" + "</button> " + "<button class=" + "like" + ">" + "like" + "</button> " +element.Nom + " " + element.Prénom)
-            .addTo(map)
-            .on("click", clickZoom);
+            $.ajax({
+            type: "POST",
+            url: "verifStatus.php",
+            data: {
+                idProf: element.IdUtilisateur,
+              },
+            success: function (result) {
+                console.log(result)
 
-          prof.push(x);
 
-          $(".like").click({ param1: false, param2: element.Email }, liker);
+                var x = L.marker([element.Latitude, element.Longitude])
+                .bindPopup( '<button class="suivie">'+ result +'</button><button class="like">Ajouter des Fav</button>' +element.Nom + " " + element.Prénom)
+                .addTo(map)
+                .on("click", clickZoom);
+    
+                prof.push(x);
+            },
+            error: function (err) {
+              console.error(err);
+            },
+          });
+
         });
       },
       error: function (err) {
@@ -118,18 +132,48 @@ $(document).ready(function () {
     type: "POST",
     url: "recupProfFav.php",
     success: function (res) {
-      JSON.parse(res).forEach((element) => {
-        var x = L.marker([element.Latitude, element.Longitude], {
-          icon: favoriIcon,
-        })
-          .bindPopup(
-            "<button class=" + "suivie" + ">" + "demande" + "</button> " + "<button class=" + "like" + ">" + "liker" + "</button> " + element.Nom + element.Prénom
-          )
-          .addTo(map)
-          .on("click", clickZoom);
+        JSON.parse(res).forEach((id) => {
+        $.ajax({
+            type: "POST",
+            url: "verifStatus.php",
+            data: {
+                idProf: id.IdUtilisateur,
+              },
+            success: function (result) {
+                    console.log(result);
 
-          $(".like").click({ param1: true, param2: element.Email }, liker);
-      });
+                    var text;
+
+                    if(result == ""){
+                        console.log("rien")
+                        text = "Demander un cour"
+                    }else if(result == "po"){
+                        console.log("po")
+                        text = "En attende de validation"
+                    }else{
+                        console.log("sui")
+                        text = "Suivi"
+                    }
+
+                    JSON.parse(res).forEach((element) => {
+                    L.marker([element.Latitude, element.Longitude], {
+                      icon: favoriIcon,
+                    })
+                      .bindPopup(
+                       '<button class="suivie">'+ text +'</button><button class="like">Enlever des Fav</button>' + element.Nom + element.Prénom
+                      )
+                      .addTo(map)
+                      .on("click", clickZoom);
+
+                  });
+
+            },
+            error: function (err) {
+              console.error(err);
+            },
+          });
+
+        });
     },
     error: function (err) {
       console.error(err);
@@ -138,15 +182,51 @@ $(document).ready(function () {
 
 
   function liker(event){
+    console.log(event.data.param)
+    if(event.data.param){
+        $.ajax({
+            type: "POST",
+            url: "delikeProf.php",
+            data: {
+                lng: event.data.lng,
+                lat: event.data.lat
+              },
+            success: function (res) {
+                window.location.reload()
+            },
+            error: function (err) {
+              console.error(err);
+            },
+          });
+    }else{
+        $.ajax({
+            type: "POST",
+            url: "likeProf.php",
+            data: {
+                lng: event.data.lng,
+                lat: event.data.lat
+              },
+            success: function (res) {
+                window.location.reload()
+            },
+            error: function (err) {
+              console.error(err);
+            },
+          });
+    }
+
+  }
+
+  function suivie(event){
     $.ajax({
         type: "POST",
-        url: "likeProf.php",
+        url: "demanderCours.php",
         data: {
-            like: event.data.param1,
-            email: event.data.param2
+            lng: event.data.lng,
+            lat: event.data.lat
           },
         success: function (res) {
-          JSON.parse(res)
+            console.log(res)
         },
         error: function (err) {
           console.error(err);
@@ -157,40 +237,19 @@ $(document).ready(function () {
 
 
 
-
-
-
-  //marker
-
-  var littleton = L.marker([48.841503, 2.247047], { icon: favoriIcon })
-      .bindPopup("This is Littleton, CO.")
-      .addTo(map)
-      .on("click", clickZoom),
-    denver = L.marker([48.829978, 2.280436], { icon: defaultIcon })
-      .bindPopup("This is Denver, CO.")
-      .addTo(map)
-      .on("click", clickZoom),
-    aurora = L.marker([48.881425, 2.277603], { icon: defaultIcon })
-      .bindPopup("This is Aurora, CO.")
-      .addTo(map)
-      .on("click", clickZoom),
-    golden = L.marker([48.892938, 2.411499], { icon: favoriIcon })
-      .bindPopup("This is Golden, CO.")
-      .addTo(map)
-      .on("click", clickZoom);
-
-  //layers
-
-  var overlayMaps = {};
-
-  var math = L.layerGroup([littleton]).addTo(map);
-
-  var layerControl = L.control.layers(overlayMaps).addTo(map);
-
-  layerControl.addBaseLayer(math, "Math");
-
+ 
   //smooth click
   function clickZoom(e) {
+
+    console.log(e)
     map.panTo(this.getLatLng());
+
+    if(e.target._icon.currentSrc == "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png"){
+        $(".like").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng, param: true},liker)
+    }else{
+        $(".like").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng, param: false},liker)
+    }
+    
+    $(".suivie").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng },suivie)
   }
 });
