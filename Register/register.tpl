@@ -17,7 +17,7 @@
         <h2>Inscription</h2>
         <div class="formu">
             <form name="formulaire" action="register.php" method="post">
-                <div class="input-box" id="erreur">
+                <div class="input-box" class="erreur">
                 <p>yo </p>
                 </div>
                 <div class="input-box">

@@ -4,7 +4,7 @@ const username = document.querySelectorAll("prenom");
 const password = document.querySelectorAll(".motdepasse");
 const password2 = document.querySelectorAll(".motdepasse2");
 const email = document.querySelectorAll('.email');
-//var form = document.formulaire;
+const erreur = document.querySelectorAll('.erreur');
 
 
 /*voir le mdp dans les champs .motdepasse*/
@@ -76,6 +76,7 @@ function checkInputs() {
         setSuccessFor(password2);
     }
 }
+
 
 /*fonction error, succes*/
 function setErrorFor(input, message) {
