@@ -8,13 +8,13 @@
     width: 100vw;
 }
 
-.suivie, .like {
+.suivie, .like, .dejaSuivi {
     color: rgb(33, 33, 33);
     background-color: #FFC9B9;
     margin: 5px;
     cursor: pointer;
 }
-.suivie:hover, .like:hover {
+.suivie:hover, .dejaSuivi:hover .like:hover {
     background-color: #f0bfae;
 }
 .iconeProf {

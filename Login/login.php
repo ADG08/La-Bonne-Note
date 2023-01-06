@@ -5,6 +5,8 @@
   $passw = isset($_POST['passw'])?($_POST['passw']):'';
   $msg = '0';
 
+  
+
   if(count($_POST)==0) {
     $error = 0;
   require("login.tpl");
@@ -14,8 +16,6 @@
     if(!verif_ident($email,$passw,$profil)){
       $error = 2;
       require("login.tpl");
-      
-      
      
     }
     else{
@@ -29,6 +29,7 @@
     require('../connectSQL.php');
     $sql="SELECT * FROM `utilisateurs` where email=:email and Password=:passw";
     try{
+      $passw = hash('sha256',$passw);
       $commande = $pdo->prepare($sql);
       $commande->bindParam(':email',$email);
       $commande->bindParam(':passw',$passw);

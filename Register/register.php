@@ -37,7 +37,7 @@ if (count($_POST) == 0){
         $lat = $data[0]->lat;
         $lon = $data[0]->lon;
         
-
+        $passw = hash('sha256',$passw);
         $stmt = $pdo->query("INSERT INTO utilisateurs (`Nom`, `Prénom`, `Email`, `Password`) VALUES ('$nom', '$prenom', '$email', '$passw')");
 
         $stmt = $pdo->query("SELECT * FROM `utilisateurs` where Email='$email'");
