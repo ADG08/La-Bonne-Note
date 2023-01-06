@@ -13,10 +13,20 @@ body{
     background: #4C956C;
 }
 
+.image img{
+    max-width: 400px;
+    margin-top : 20px;
+    border-radius: 9px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    opacity: 0;
+    transform: translateX(30px);
+    animation: apparition 0.8s 1s ease-out forwards;
+}
+
 /*container*/
 .container{
     width: 100%;
-    max-width: 500px;
+    max-width: 900px;
     height: auto;
     background: #FEFEE3;
     padding: 34px;
@@ -49,19 +59,14 @@ body{
     background: #D68C45;
 }
 
-/*transition*/
-.container form{
-    margin-top: 25px;
-    opacity: 0;
-    transform: translateY(-30px);
-    animation: apparition 0.8s 0.2s ease-out forwards;
-}
 
-.container form .input-box{
-    height: 52px;
-    margin: 18px 0;
+/*div qui regroupe la box image et le formulaire*/
+.separer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
-/*fin container*/
 
 /*input box*/
 form .input-box{
@@ -85,39 +90,11 @@ form .input-box{
     border-top: 2px solid transparent;
 }
 /*fin input box*/
-
-/*icon balise i*/
-form .input-box i{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #D68C45;
-    font-size: 23px;
-    transition: all 0.3s ease;
-}
-
-form .input-box i.icon{
-    left: 0;
-}
-
-form .input-box i.showHide{
-    right: 0;
-    cursor: pointer;
-}
-/*fin icon balise i*/
-
-/*checkbox*/
-form .policy, .prof{
+.separer{
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-}
-
-/*checkbox titre*/
-form h3{
-    color: #707070;
-    font-size: 14px;
-    font-weight: 500;
-    margin-left: 10px;
 }
 
 /*boutton*/
@@ -136,24 +113,6 @@ form h3{
     background: #dea99a;
 }
 /*fin boutton*/
-
-/*deja un compte*/
-form .text h3{
-    color: #333;
-    width: 100%;
-    text-align: center;
-}
-
-/*deja un compte - lien*/
-form .text h3 a{
-    color: #D68C45;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-form .text h3 a:hover{
-    text-decoration: underline;
-}
 
 /*responsive*/
 @media screen and (max-width: 735px) {
