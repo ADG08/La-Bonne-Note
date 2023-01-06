@@ -105,11 +105,23 @@ $(document).ready(function () {
                 idProf: element.IdUtilisateur,
               },
             success: function (result) {
-                console.log(result)
+                
+                var text;
+
+                if(result == ""){
+                    console.log("rien")
+                    text = "Demander un cours"
+                }else if(result == "po"){
+                    console.log("po")
+                    text = "En attende de validation"
+                }else{
+                    console.log("sui")
+                    text = "Suivi"
+                }
 
 
                 var x = L.marker([element.Latitude, element.Longitude])
-                .bindPopup( '<button class="suivie">'+ result +'</button><button class="like">Ajouter des Fav</button>' +element.Nom + " " + element.Prénom)
+                .bindPopup( '<button class="suivie">'+ text +'</button><button class="like">Ajouter des Fav</button>' +element.Nom + " " + element.Prénom)
                 .addTo(map)
                 .on("click", clickZoom);
     
@@ -146,7 +158,7 @@ $(document).ready(function () {
 
                     if(result == ""){
                         console.log("rien")
-                        text = "Demander un cour"
+                        text = "Demander un cours"
                     }else if(result == "po"){
                         console.log("po")
                         text = "En attende de validation"
