@@ -33,8 +33,12 @@
         </div>
         <div class="text">
           <small>Pas encore inscrit(e) ? <a href="../Register/register.php">S'inscrire</a> </small>
+          <?php if ($error == 2){$msg = "Identifiant ou mot de passe incorrect.";
+      echo '<p style="color: red;  margin-right : 30%">'.$msg.'</p>';
+      }?>
         </div>
       </form>
+      
     </div>
   </div>
 <script src="login.js"></script>

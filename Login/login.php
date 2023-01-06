@@ -5,14 +5,17 @@
   $passw = isset($_POST['passw'])?($_POST['passw']):'';
   $msg = '0';
 
-  if(count($_POST)==0)
+  if(count($_POST)==0) {
+    $error = 0;
   require("login.tpl");
+  }
   else{
     $profil = array();
     if(!verif_ident($email,$passw,$profil)){
+      $error = 2;
       require("login.tpl");
-      $msg = "Identifiant ou mot de passe incorrect.";
-      echo '<p style="color: red; position : absolute; margin-top : 22%; margin-right : 30%">'.$msg.'</p>';
+      
+      
      
     }
     else{
