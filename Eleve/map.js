@@ -169,6 +169,20 @@ $(document).ready(function () {
               text = "Suivi"
             }
 
+            $.ajax({
+              type: "POST",
+              url: "recupInfoProf.php",
+              data: {
+                idProf: id.IdUtilisateur
+              },
+              success: function (res) {
+                console.log(res)
+              },
+              error: function (err) {
+                console.error(err);
+              },
+            })
+
             JSON.parse(res).forEach((element) => {
               L.marker([element.Latitude, element.Longitude], {
                 icon: favoriIcon,

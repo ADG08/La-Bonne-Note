@@ -6,18 +6,20 @@ session_start();
 
 $idProf = $_REQUEST["idProf"];
 
-$stmt = $pdo->query("Select * from InfoProf where IdProf = $idProf");
+$stmt = $pdo->query("SELECT * from InfoProf where IdProf = $idProf");
 $res = $stmt->fetch();
+$nomNiv = $res['IdMatiere'];
+$nomMat = $res['IdNiveau'];
 
 $result = array();
 
-$stmt = $pdo->query("Select * from matiere where IdMatiere = $res['IdMatiere']" );
+$stmt = $pdo->query("SELECT * FROM matiere where IdMatiere = '$nomMat' " );
 
 $mat = $stmt->fetch();
 
 array_push($result, $mat['NomMatiere']);
 
-$stmt = $pdo->query("Select * from niveau where IdNiveau = $res['IdNiveau']" );
+$stmt = $pdo->query("SELECT * from niveau where IdNiveau = '$nomNiv' ");
 
 $niv = $stmt->fetch();
 
