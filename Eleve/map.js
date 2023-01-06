@@ -41,8 +41,6 @@ $(document).ready(function () {
   for (let i = 0; i < arrondissements.features.length; i++) {
     var v = L.geoJson(arrondissements.features[i]).addTo(map)
 
-
-
     index.push(arrondissements.features[i].properties.c_ar);
 
     for (let y = 0; y < index.length; y++) {
@@ -85,6 +83,8 @@ $(document).ready(function () {
       opacity: 1,
     });
 
+    console.log(index[event.data.param]);
+
     $.ajax({
       type: "POST",
       url: "recupProf.php",
@@ -92,6 +92,8 @@ $(document).ready(function () {
         arr: index[event.data.param],
       },
       success: function (res) {
+        console.log(JSON.parse(res))
+
         prof.forEach((element) => {
           map.removeLayer(element);
         });
@@ -146,6 +148,8 @@ $(document).ready(function () {
     type: "POST",
     url: "recupProfFav.php",
     success: function (res) {
+      console.log(res);
+
       JSON.parse(res).forEach((id) => {
         $.ajax({
           type: "POST",

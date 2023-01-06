@@ -13,7 +13,7 @@ $nomMat = $res['IdNiveau'];
 
 $result = array();
 
-$stmt = $pdo->query("SELECT * FROM matiere where IdMatiere = '$nomMat' " );
+$stmt = $pdo->query("SELECT * FROM matière where IdMatiere = '$nomMat' " );
 
 $mat = $stmt->fetch();
 
