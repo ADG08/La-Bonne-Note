@@ -13,9 +13,9 @@
 
 <body>
   <div class="rec">
-    <button class="boutton">Profil</button>
-    <button class="boutton">Carte</button>
-    <button class="boutton">Déconnexion</button>
+    <a href="../Profil/profil.php"><button class="Profil" >Profil</button></a>
+    <button class="Carte" >Carte</button>
+    <button class="Déconnexion" >Déconnexion</button>
   </div>
   <div class="content">
 

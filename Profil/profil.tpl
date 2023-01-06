@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="profil.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/ac2f7dafa4.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="profil.js"></script>
     </head>
 
     <body>
@@ -20,8 +22,8 @@
                             <div class="titre-champ">
                                 <h5>Nom</h5>
                             </div>
-                            <div class="nom">
-                                <p value="<?php echo $nom; ?>">Jean-George</p>
+                            <div >
+                                <p class="nom"></p>
                             </div>
                         </div>
                         <hr>
@@ -29,8 +31,8 @@
                             <div class="titre-champ">
                                 <h5>Prénom</h5>
                             </div>
-                            <div class="prénom">
-                                <p value="<?php echo $prénom; ?>">Jean-George</p>
+                            <div >
+                                <p class="prenom"></p>
                             </div>
                         </div>
                         <hr>
@@ -38,8 +40,8 @@
                             <div class="titre-champ">
                                 <h5>Email</h5>
                             </div>
-                            <div class="email">
-                                <p value="<?php echo $email; ?>">Jean-George</p>
+                            <div >
+                                <p class="email"></p>
                             </div>
                         </div>
                         <hr>               
@@ -50,8 +52,8 @@
                         <div class="titre-champ">
                             <h5>Matière</h5>
                         </div>
-                        <div class="matière">
-                            <p value="<?php echo $matière; ?>">Jean-George</p>
+                        <div >
+                            <p class="matiere"></p>
                         </div>
                     </div>
                     <hr>
@@ -59,8 +61,8 @@
                         <div class="titre-champ">
                             <h5>Niveau</h5>
                         </div>
-                        <div class="niveau">
-                            <p value="<?php echo $niveau; ?>">Jean-George</p>
+                        <div >
+                            <p class="niveau"></p>
                         </div>
                     </div>
                     <hr>
@@ -68,8 +70,8 @@
                         <div class="titre-champ">
                             <h5>Adresse</h5>
                         </div>
-                        <div class="adresse">
-                            <p value="<?php echo $adresse; ?>">Jean-George</p>
+                        <div >
+                            <p class="adresse"></p>
                         </div>
                     </div>
                     <hr>
