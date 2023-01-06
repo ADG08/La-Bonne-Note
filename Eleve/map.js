@@ -119,9 +119,11 @@ $(document).ready(function () {
                     text = "Suivi"
                 }
 
+                //ajax ici pour recup la matiere et l'autre 
+
 
                 var x = L.marker([element.Latitude, element.Longitude])
-                .bindPopup( '<button class="suivie">'+ text +'</button><button class="like">Ajouter aux fav</button>' +element.Nom + " " + element.Prénom)
+                .bindPopup( '<h3>'+ element.Nom + " " + element.Prénom + "</h3><br>" + '<p>'  + " pour "  + '</p><br><button class="suivie">' + text + '</button><br><button class="like">Ajouter aux fav</button>')
                 .addTo(map)
                 .on("click", clickZoom);
     
@@ -172,7 +174,7 @@ $(document).ready(function () {
                       icon: favoriIcon,
                     })
                       .bindPopup(
-                       '<button class="suivie">'+ text +'</button><button class="like">Enlever des Fav</button>' + element.Nom + element.Prénom
+                        '<h3>'+ element.Nom + " " + element.Prénom + "</h3><br>" + '<p>'  + " pour "  + '</p><br><button class="suivie">' + text + '</button><br><button class="like">Ajouter aux fav</button>'
                       )
                       .addTo(map)
                       .on("click", clickZoom);
