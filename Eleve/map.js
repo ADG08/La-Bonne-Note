@@ -105,11 +105,25 @@ $(document).ready(function () {
                 idProf: element.IdUtilisateur,
               },
             success: function (result) {
-                console.log(result)
+                
+                var text;
+
+                if(result == ""){
+                    console.log("rien")
+                    text = "Demander un cours"
+                }else if(result == "po"){
+                    console.log("po")
+                    text = "En attende de validation"
+                }else{
+                    console.log("sui")
+                    text = "Suivi"
+                }
+
+                //ajax ici pour recup la matiere et l'autre 
 
 
                 var x = L.marker([element.Latitude, element.Longitude])
-                .bindPopup( '<button class="suivie">'+ result +'</button><button class="like">Ajouter des Fav</button>' +element.Nom + " " + element.Prénom)
+                .bindPopup( '<h3>'+ element.Nom + " " + element.Prénom + "</h3><br>" + '<p>'  + " pour "  + '</p><br><button class="suivie">' + text + '</button><br><button class="like">Ajouter aux fav</button>')
                 .addTo(map)
                 .on("click", clickZoom);
     
@@ -146,7 +160,7 @@ $(document).ready(function () {
 
                     if(result == ""){
                         console.log("rien")
-                        text = "Demander un cour"
+                        text = "Demander un cours"
                     }else if(result == "po"){
                         console.log("po")
                         text = "En attende de validation"
@@ -160,7 +174,7 @@ $(document).ready(function () {
                       icon: favoriIcon,
                     })
                       .bindPopup(
-                       '<button class="suivie">'+ text +'</button><button class="like">Enlever des Fav</button>' + element.Nom + element.Prénom
+                        '<h3>'+ element.Nom + " " + element.Prénom + "</h3><br>" + '<p>'  + " pour "  + '</p><br><button class="suivie">' + text + '</button><br><button class="like">Ajouter aux fav</button>'
                       )
                       .addTo(map)
                       .on("click", clickZoom);
