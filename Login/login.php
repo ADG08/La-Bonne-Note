@@ -5,14 +5,18 @@
   $passw = isset($_POST['passw'])?($_POST['passw']):'';
   $msg = '0';
 
-  if(count($_POST)==0)
+  if(count($_POST)==0) {
+    $error = 0;
   require("login.tpl");
+  }
   else{
     $profil = array();
     if(!verif_ident($email,$passw,$profil)){
-      $msg = "ERREUR BLABLABLA";
-      echo '<small style = "color: red; position : absolute;">'.$msg.'</small>';
+      $error = 2;
       require("login.tpl");
+      
+      
+     
     }
     else{
       $_SESSION['profil'] = $profil;
@@ -23,7 +27,7 @@
 
   function verif_ident($email,$passw,array &$profil) {
     require('../connectSQL.php');
-    $sql="SELECT * FROM `utilisateurs` where Email=:email and Password=:passw";
+    $sql="SELECT * FROM `utilisateurs` where email=:email and Password=:passw";
     try{
       $commande = $pdo->prepare($sql);
       $commande->bindParam(':email',$email);
