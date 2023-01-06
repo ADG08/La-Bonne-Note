@@ -17,8 +17,7 @@ while ($row = $stmt->fetch()) {
     array_push($res, $row['IdUtilisateur']);
 }
 foreach($res as &$x){
-    $stmt = $pdo->query("INSERT INTO favori (IdProf, IdEleve) VALUES ('$x', $Id) ");
+    $stmt = $pdo->query("DELETE FROM suivi WHERE IdEleve = $Id AND IdProf = $x");
 }
-echo "fait";
 
 ?>

@@ -41,8 +41,6 @@ $(document).ready(function () {
   for (let i = 0; i < arrondissements.features.length; i++) {
     var v = L.geoJson(arrondissements.features[i]).addTo(map)
 
-  
-
     index.push(arrondissements.features[i].properties.c_ar);
 
     for (let y = 0; y < index.length; y++) {
@@ -85,8 +83,7 @@ $(document).ready(function () {
       opacity: 1,
     });
 
-
-    var iconeP = "<img class="+"iconeProf"+ "src="+ "./chalkboard.svg"+">"+ "</img>"
+    console.log(index[event.data.param]);
 
     $.ajax({
       type: "POST",
@@ -95,21 +92,50 @@ $(document).ready(function () {
         arr: index[event.data.param],
       },
       success: function (res) {
+        console.log(JSON.parse(res))
+
         prof.forEach((element) => {
           map.removeLayer(element);
         });
 
         var result = JSON.parse(res);
         result.forEach((element) => {
-          var x = L.marker([element.Latitude, element.Longitude])
-            .bindPopup('<h3>' + element.Nom + " " + element.Prénom +'</h3>'+ "<br>"+ iconeP +'<p>Math</p><br><button class="suivie">Demande</button><br><button class="like">like</button>')
+          $.ajax({
+            type: "POST",
+            url: "verifStatus.php",
+            data: {
+              idProf: element.IdUtilisateur,
+            },
+            success: function (result) {
 
-            .addTo(map)
-            .on("click", clickZoom);
+              var text;
 
-          prof.push(x);
+              if (result == "") {
+                console.log("rien")
+                text = "Demander un cours"
+              } else if (result == "po") {
+                console.log("po")
+                text = "En attende de validation"
+              } else {
+                console.log("sui")
+                text = "Suivi"
+              }
 
-          $(".like").click({ param1: false, param2: element.Email }, liker);
+              //ajax ici pour recup la matiere et l'autre 
+
+
+              var x = L.marker([element.Latitude, element.Longitude])
+                .bindPopup('<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p>' + " pour " + '</p><br><button class="suivie">' + text + '</button><br><button class="like">Ajouter aux fav</button>')
+                .addTo(map)
+                .on("click", clickZoom);
+
+              prof.push(x);
+            },
+            error: function (err) {
+              console.error(err);
+            },
+          });
+
         });
       },
       error: function (err) {
@@ -122,17 +148,84 @@ $(document).ready(function () {
     type: "POST",
     url: "recupProfFav.php",
     success: function (res) {
-      JSON.parse(res).forEach((element) => {
-        var x = L.marker([element.Latitude, element.Longitude], {
-          icon: favoriIcon,
-        })
-          .bindPopup(
-           '<h3>' + element.Nom + " " + element.Prénom +'</h3>'+ "<br>"+ iconeP +'<p>Math</p><br><button class="suivie">Demande</button><br><button class="like">like</button>'
-          )
-          .addTo(map)
-          .on("click", clickZoom);
+      console.log(res);
 
-          $(".like").click({ param1: true, param2: element.Email }, liker);
+      JSON.parse(res).forEach((id) => {
+        $.ajax({
+          type: "POST",
+          url: "verifStatus.php",
+          data: {
+            idProf: id.IdUtilisateur,
+          },
+          success: function (result) {
+            console.log(result);
+
+            var text;
+
+            if (result == "") {
+              console.log("rien")
+              text = "Demander un cours"
+            } else if (result == "po") {
+              console.log("po")
+              text = "En attende de validation"
+            } else {
+              console.log("sui")
+              text = "Déjà suivi"
+            }
+
+            $.ajax({
+              type: "POST",
+              url: "recupInfoProf.php",
+              data: {
+                idProf: id.IdUtilisateur
+              },
+              success: function (res) {
+                console.log(res)
+              },
+              error: function (err) {
+                console.error(err);
+              },
+            })
+
+            if (result == "su") {
+
+              JSON.parse(res).forEach((element) => {
+                L.marker([element.Latitude, element.Longitude], {
+                  icon: favoriIcon,
+                })
+                  .bindPopup(
+                    '<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p>' + " pour " + '</p><br><button class="dejaSuivi">' + text + '</button><br><button class="like">Enlever des fav</button>'
+                  )
+                  .addTo(map)
+                  .on("click", clickZoom);
+
+                console.log(result);
+
+
+              });
+            } else {
+
+              JSON.parse(res).forEach((element) => {
+                L.marker([element.Latitude, element.Longitude], {
+                  icon: favoriIcon,
+                })
+                  .bindPopup(
+                    '<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p>' + " pour " + '</p><br><button class="suivie">' + text + '</button><br><button class="like">Enlever des fav</button>'
+                  )
+                  .addTo(map)
+                  .on("click", clickZoom);
+
+                console.log(result);
+
+
+              });
+            }
+          },
+          error: function (err) {
+            console.error(err);
+          },
+        });
+
       });
     },
     error: function (err) {
@@ -141,60 +234,93 @@ $(document).ready(function () {
   });
 
 
-  function liker(event){
-    $.ajax({
+  function liker(event) {
+    console.log(event.data.param)
+    if (event.data.param) {
+      $.ajax({
         type: "POST",
-        url: "likeProf.php",
+        url: "delikeProf.php",
         data: {
-            like: event.data.param1,
-            email: event.data.param2
-          },
+          lng: event.data.lng,
+          lat: event.data.lat
+        },
         success: function (res) {
-          JSON.parse(res)
+          window.location.reload()
         },
         error: function (err) {
           console.error(err);
         },
       });
+    } else {
+      $.ajax({
+        type: "POST",
+        url: "likeProf.php",
+        data: {
+          lng: event.data.lng,
+          lat: event.data.lat
+        },
+        success: function (res) {
+          window.location.reload()
+        },
+        error: function (err) {
+          console.error(err);
+        },
+      });
+    }
+
+  }
+
+  function suivie(event) {
+    $.ajax({
+      type: "POST",
+      url: "demanderCours.php",
+      data: {
+        lng: event.data.lng,
+        lat: event.data.lat
+      },
+      success: function (res) {
+        window.location.reload()
+      },
+      error: function (err) {
+        console.error(err);
+      },
+    });
+  }
+
+  function arretSuivi(event) {
+    $.ajax({
+      type: "POST",
+      url: "arretSuivi.php",
+      data: {
+        lng: event.data.lng,
+        lat: event.data.lat
+      },
+      success: function (res) {
+        window.location.reload()
+      },
+      error: function (err) {
+        console.error(err);
+      },
+    });
   }
 
 
 
 
-
-
-
-  //marker
-
-  var littleton = L.marker([48.841503, 2.247047], { icon: favoriIcon })
-      .bindPopup("This is Littleton, CO.")
-      .addTo(map)
-      .on("click", clickZoom),
-    denver = L.marker([48.829978, 2.280436], { icon: defaultIcon })
-      .bindPopup("This is Denver, CO.")
-      .addTo(map)
-      .on("click", clickZoom),
-    aurora = L.marker([48.881425, 2.277603], { icon: defaultIcon })
-      .bindPopup("This is Aurora, CO.")
-      .addTo(map)
-      .on("click", clickZoom),
-    golden = L.marker([48.892938, 2.411499], { icon: favoriIcon })
-      .bindPopup("This is Golden, CO.")
-      .addTo(map)
-      .on("click", clickZoom);
-
-  //layers
-
-  var overlayMaps = {};
-
-  var math = L.layerGroup([littleton]).addTo(map);
-
-  var layerControl = L.control.layers(overlayMaps).addTo(map);
-
-  layerControl.addBaseLayer(math, "Math");
-
   //smooth click
   function clickZoom(e) {
+
+    console.log(e)
     map.panTo(this.getLatLng());
+
+    if (e.target._icon.currentSrc == "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png") {
+      $(".like").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng, param: true }, liker)
+    } else {
+      $(".like").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng, param: false }, liker)
+    }
+
+    $(".suivie").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng }, suivie)
+
+    $(".dejaSuivi").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng }, arretSuivi)
   }
 });
