@@ -85,6 +85,9 @@ $(document).ready(function () {
       opacity: 1,
     });
 
+
+    var iconeP = "<img class="+"iconeProf"+ "src="+ "./chalkboard.svg"+">"+ "</img>"
+
     $.ajax({
       type: "POST",
       url: "recupProf.php",
@@ -99,7 +102,7 @@ $(document).ready(function () {
         var result = JSON.parse(res);
         result.forEach((element) => {
           var x = L.marker([element.Latitude, element.Longitude])
-            .bindPopup( "<button class=" + "suivie" + ">" + "demande" + "</button> " + "<button class=" + "like" + ">" + "like" + "</button> " +element.Nom + " " + element.Prénom)
+            .bindPopup( '<h3>' + element.Nom + " " + element.Prénom +'</h3>'+ "<br>"+ iconeP +"<button class=" + "suivie" + ">" + "demande" + "</button> " +"<br>"+ "<button class=" + "like" + ">" + "like" + "</button> ")
             .addTo(map)
             .on("click", clickZoom);
 
@@ -123,7 +126,7 @@ $(document).ready(function () {
           icon: favoriIcon,
         })
           .bindPopup(
-            "<button class=" + "suivie" + ">" + "demande" + "</button> " + "<button class=" + "like" + ">" + "liker" + "</button> " + element.Nom + element.Prénom
+           '<h3>' + element.Nom + " " + element.Prénom +'</h3>'+ "<br>"+ iconeP +"<button class=" + "suivie" + ">" + "demande" + "</button> " +"<br>"+ "<button class=" + "like" + ">" + "like" + "</button> "
           )
           .addTo(map)
           .on("click", clickZoom);
