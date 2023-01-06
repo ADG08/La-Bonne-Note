@@ -21,18 +21,31 @@ if (isset($_POST['check1'])) {
 }
 
 
+
 /*ajout dans la base de donnée*/
 if (count($_POST) == 0){
     require("register.tpl");
 }else{
     if (!empty($prenom) && !empty($passw) && !empty($email)) {
-        $stmt = $pdo->query("INSERT INTO utilisateurs ( `IdUtilisateur`,`Nom`, `Prénom`, `Email`, `Password`) VALUES (NULL , '$nom', '$prenom', '$email', '$passw')");
+
+        $spacesInPlus = str_replace(" ", "+", $adresse);
+        $url1 = "https://nominatim.openstreetmap.org/search.php?q=$spacesInPlus&format=jsonv2&email=youremail@gmail.com";
+
+        $response = file_get_contents($url1);
+        $data = json_decode($response);
+
+        $lat = $data[0]->lat;
+        $lon = $data[0]->lon;
+        
+
+        $stmt = $pdo->query("INSERT INTO utilisateurs (`Nom`, `Prénom`, `Email`, `Password`) VALUES ('$nom', '$prenom', '$email', '$passw')");
 
         $stmt = $pdo->query("SELECT * FROM `utilisateurs` where Email='$email'");
         $row = $stmt->fetch();
         $Id = $row['IdUtilisateur'];
 
         $stmt = $pdo->query("INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrondissement`, `Naissance`, `Prof`) VALUES ('$Id', '$adresse', '$complement', '$arrondissement', '$naissance', '$prof')");
+        $stmt = $pdo->query("INSERT INTO localisation (`IdUtilisateur`,`Longitude`, `Latitude`) VALUES ('$Id' , '$lon', '$lat')");
 
         if ($prof == 1 ){
             $url = "choixprof.php";
