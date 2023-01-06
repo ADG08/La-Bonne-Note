@@ -166,7 +166,7 @@ $(document).ready(function () {
               text = "En attende de validation"
             } else {
               console.log("sui")
-              text = "Suivi"
+              text = "Déjà suivi"
             }
 
             $.ajax({
@@ -183,18 +183,39 @@ $(document).ready(function () {
               },
             })
 
-            JSON.parse(res).forEach((element) => {
-              L.marker([element.Latitude, element.Longitude], {
-                icon: favoriIcon,
-              })
-                .bindPopup(
-                  '<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p>' + " pour " + '</p><br><button class="suivie">' + text + '</button><br><button class="like">Enlever des fav</button>'
-                )
-                .addTo(map)
-                .on("click", clickZoom);
+            if (result == "su") {
 
-            });
+              JSON.parse(res).forEach((element) => {
+                L.marker([element.Latitude, element.Longitude], {
+                  icon: favoriIcon,
+                })
+                  .bindPopup(
+                    '<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p>' + " pour " + '</p><br><button class="dejaSuivi">' + text + '</button><br><button class="like">Enlever des fav</button>'
+                  )
+                  .addTo(map)
+                  .on("click", clickZoom);
 
+                console.log(result);
+
+
+              });
+            } else {
+
+              JSON.parse(res).forEach((element) => {
+                L.marker([element.Latitude, element.Longitude], {
+                  icon: favoriIcon,
+                })
+                  .bindPopup(
+                    '<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p>' + " pour " + '</p><br><button class="suivie">' + text + '</button><br><button class="like">Enlever des fav</button>'
+                  )
+                  .addTo(map)
+                  .on("click", clickZoom);
+
+                console.log(result);
+
+
+              });
+            }
           },
           error: function (err) {
             console.error(err);
@@ -254,7 +275,7 @@ $(document).ready(function () {
         lat: event.data.lat
       },
       success: function (res) {
-        console.log(res)
+        window.location.reload()
       },
       error: function (err) {
         console.error(err);
@@ -262,6 +283,22 @@ $(document).ready(function () {
     });
   }
 
+  function arretSuivi(event) {
+    $.ajax({
+      type: "POST",
+      url: "arretSuivi.php",
+      data: {
+        lng: event.data.lng,
+        lat: event.data.lat
+      },
+      success: function (res) {
+        window.location.reload()
+      },
+      error: function (err) {
+        console.error(err);
+      },
+    });
+  }
 
 
 
@@ -279,5 +316,7 @@ $(document).ready(function () {
     }
 
     $(".suivie").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng }, suivie)
+
+    $(".dejaSuivi").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng }, arretSuivi)
   }
 });
