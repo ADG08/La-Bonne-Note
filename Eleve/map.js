@@ -121,7 +121,7 @@ $(document).ready(function () {
 
 
                 var x = L.marker([element.Latitude, element.Longitude])
-                .bindPopup( '<button class="suivie">'+ text +'</button><button class="like">Ajouter des Fav</button>' +element.Nom + " " + element.Prénom)
+                .bindPopup( '<button class="suivie">'+ text +'</button><button class="like">Ajouter aux fav</button>' +element.Nom + " " + element.Prénom)
                 .addTo(map)
                 .on("click", clickZoom);
     
