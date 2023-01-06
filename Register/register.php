@@ -44,6 +44,9 @@ if (count($_POST) == 0){
         $row = $stmt->fetch();
         $Id = $row['IdUtilisateur'];
 
+        $id = $_SESSION['profil']['Id'] = $Id;
+
+
         $stmt = $pdo->query("INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrondissement`, `Naissance`, `Prof`) VALUES ('$Id', '$adresse', '$complement', '$arrondissement', '$naissance', '$prof')");
         $stmt = $pdo->query("INSERT INTO localisation (`IdUtilisateur`,`Longitude`, `Latitude`) VALUES ('$Id' , '$lon', '$lat')");
 
@@ -52,7 +55,10 @@ if (count($_POST) == 0){
         }else{
             $url = "../Login/login.php";
         }
-        
+
+
+
+
         header("Location:" . $url);
     }
 }

@@ -17,9 +17,6 @@
         <h2>Inscription</h2>
         <div class="formu">
             <form name="formulaire" action="register.php" method="post">
-                <div class="input-box" class="erreur">
-                <p>yo </p>
-                </div>
                 <div class="input-box">
                     <input type="text" placeholder="Entrez votre nom" name="nom" value="<?php echo $nom; ?>" required>
                     <i class="fa-regular fa-user icon"></i>
@@ -33,7 +30,7 @@
                     <i class="fa-regular fa-envelope icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" pattern=".{8,}" class="motdepasse" placeholder="Mot de passe" name="passw" value="<?php echo $passw; ?>" required>
+                    <input type="password" pattern=".{8,}" class="motdepasse" placeholder="Mot de passe (8 caractères)" name="passw" value="<?php echo $passw; ?>" required>
                     <i class="fa-solid fa-lock icon"></i>
                 </div>
                 <div class="input-box">

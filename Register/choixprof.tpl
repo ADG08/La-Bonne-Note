@@ -21,30 +21,28 @@
                 <img src="./img/study.jpg" alt="">
             </div>
 
-            <form name="formulaire" action="register.php" method="post">
+            <form name="formulaire" action="choixprof.php" method="post">
                 <div class="input-box">
-                    <p>Choisissez la matière que vous souhaitez enseigner
-                    </p>
-                    <select>
+                    <option value="default">Choisissez la matière que vous souhaitez enseigner</option>
+                    <select name="matiere" id="matiere">
                         <?php
                             require "../connectSQL.php";
                             $stmt = $pdo->query("SELECT * FROM `matière`");
                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                echo "<option value='" . $row['Nom'] . "'>" . $row['Nom'] . "</option>";
+                                echo "<option value='" . $row['IdMatiere'] . "'>" . $row['Nom'] . "</option>";
                             }
                         ?>
                     </select>
                 </div>
 
                 <div class="input-box">
-                    <p>Choisissez le niveau de vos cours 
-                    </p>
-                    <select>
+                    <option value="default">Choisissez le niveau de vos cours</option>
+                    <select name="niveau" id="niveau">
                         <?php
                             require "../connectSQL.php";
                             $stmt = $pdo->query("SELECT * FROM `niveau`");
                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                echo "<option value='" . $row['Nom'] . "'>" . $row['Nom'] . "</option>";
+                                echo "<option value='" . $row['IdNiveau'] . "'>" . $row['Nom'] . "</option>";
                             }
                         ?>
                     </select>
