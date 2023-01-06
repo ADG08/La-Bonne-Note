@@ -29,7 +29,7 @@
                             require "../connectSQL.php";
                             $stmt = $pdo->query("SELECT * FROM `matière`");
                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                echo "<option value='" . $row['IdMatiere'] . "'>" . $row['Nom'] . "</option>";
+                                echo "<option value='" . $row['IdMatiere'] . "'>" . $row['NomMatiere'] . "</option>";
                             }
                         ?>
                     </select>
@@ -42,7 +42,7 @@
                             require "../connectSQL.php";
                             $stmt = $pdo->query("SELECT * FROM `niveau`");
                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                echo "<option value='" . $row['IdNiveau'] . "'>" . $row['Nom'] . "</option>";
+                                echo "<option value='" . $row['IdNiveau'] . "'>" . $row['NomNiveau'] . "</option>";
                             }
                         ?>
                     </select>

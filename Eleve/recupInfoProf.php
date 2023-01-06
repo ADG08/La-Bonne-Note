@@ -4,7 +4,13 @@ require('../connectSQL.php');
 
 session_start(); 
 
-$idProf = $_REQUEST["idProf"];
+$lat = $_REQUEST["lat"];
+$lng = $_REQUEST["lng"];
+
+
+$stmt = $pdo->query("SELECT * FROM `localisation` WHERE Longitude = '$lng' AND Latitude = '$lat' ");
+$row = $stmt->fetch();
+$idProf = $row['IdUtilisateur'];
 
 $stmt = $pdo->query("SELECT * from InfoProf where IdProf = $idProf");
 $res = $stmt->fetch();

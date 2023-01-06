@@ -15,7 +15,7 @@
   <div class="rec">
     <a href="../Profil/profil.php"><button class="Profil" >Profil</button></a>
     <button class="Carte" >Carte</button>
-    <button class="Déconnexion" >Déconnexion</button>
+    <form action="prof.php" method="post"><button class="boutton" name="deco" value="1">Déconnexion</button></form>
   </div>
   <div class="content">
 
