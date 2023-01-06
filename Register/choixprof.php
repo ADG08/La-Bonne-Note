@@ -12,6 +12,9 @@ $id = intval($id);
 if (count($_POST) == 0){
     require "choixprof.tpl";
 }else{
+
+    $stmt = $pdo->query("INSERT INTO `infoprof`(`IdProf`, `IdNiveau`, `IdMatiere`) VALUES('$id', '$niveau', '$matiere')");
+
     
     $matiere = $_POST['matiere'];
     $niveau = $_POST['niveau'];
