@@ -153,7 +153,7 @@ CREATE TABLE `utilisateurs` (
   `Nom` varchar(20) NOT NULL,
   `Prénom` varchar(20) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Password` varchar(20) NOT NULL
+  `Password` varchar(100  ) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
