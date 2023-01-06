@@ -50,7 +50,7 @@ body {
     align-items: center;
 }
 
-.boutton{
+button{
     size: 20px;
     padding: 15px;
     margin: 25px;
@@ -67,7 +67,7 @@ body {
     transition: all 0.3s ease;
 }
 
-.boutton:hover{
+button:hover{
     background: #dea99a;
     color: #333;
 }

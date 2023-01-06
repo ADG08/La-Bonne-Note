@@ -13,9 +13,9 @@
 
 <body>
   <div class="rec">
-    <button class="boutton">Profil</button>
-    <button class="boutton">Carte</button>
-    <form action="prof.php" method="post"><button class="boutton" name="deco" value="1">Déconnexion</button></form>
+    <a href="../Profil/profil.php"><button class="Profil" >Profil</button></a>
+    <button class="Carte" >Carte</button>
+    <button class="Déconnexion" >Déconnexion</button>
   </div>
   <div class="content">
 
