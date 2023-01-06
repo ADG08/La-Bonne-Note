@@ -5,7 +5,7 @@ require('../connectSQL.php');
 session_start();
 
 $Id = isset($_SESSION['profil']['IdUtilisateur'])?($_SESSION['profil']['IdUtilisateur']):'';
-$idProf = $_REQUEST["idProf"];
+$idProf = $_REQUEST['idProf'];
 
 
 $stmt = $pdo->query("SELECT * FROM `potentiel` WHERE potentiel.IdEleve = $Id AND potentiel.IdProf = $idProf");
