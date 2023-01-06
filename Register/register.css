@@ -13,18 +13,10 @@ body{
     background: #4C956C;
 }
 
-.image img{
-    max-width: 400px;
-    border-radius: 9px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    opacity: 0;
-    transform: translateX(30px);
-    animation: apparition 0.8s 1s ease-out forwards;
-}
-
+/*container*/
 .container{
     width: 100%;
-    max-width: 900px;
+    max-width: 500px;
     height: auto;
     background: #FEFEE3;
     padding: 34px;
@@ -34,14 +26,18 @@ body{
     flex-direction: column;
 }
 
+/*titre*/
 .container h2{
     position: relative;
     font-size: 22px;
     font-weight: 600;
     color: #333;
+    opacity: 0;
+    transform: translateY(-30px);
     animation: apparition 0.4s 0.8s ease-out forwards;
 }
 
+/*soulignage titre*/
 .container h2::before{
     content: '';
     position: absolute;
@@ -53,8 +49,11 @@ body{
     background: #D68C45;
 }
 
+/*transition*/
 .container form{
     margin-top: 25px;
+    opacity: 0;
+    transform: translateY(-30px);
     animation: apparition 0.8s 0.2s ease-out forwards;
 }
 
@@ -62,7 +61,9 @@ body{
     height: 52px;
     margin: 18px 0;
 }
+/*fin container*/
 
+/*div qui regroupe la box image et le formulaire*/
 .separer{
     display: flex;
     flex-direction: row;
@@ -70,7 +71,7 @@ body{
     align-items: center;
 }
 
-/* Ajout */
+/*input box*/
 form .input-box{
     position: relative;
     height: 50px;
@@ -78,6 +79,7 @@ form .input-box{
     margin-top: 30px;
 }
 
+/*design*/
 .input-box input{
     background-color: #FEFEE3;
     position: absolute;
@@ -90,15 +92,9 @@ form .input-box{
     border-bottom: 2px solid #D68C45;
     border-top: 2px solid transparent;
 }
+/*fin input box*/
 
-/* .input-box input:is(:focus, :valid){
-    border-bottom-color: #4C956C;
-}
-
-/* .input-box input:is(:focus, :valid) ~ i{
-    color: #4C956C;
-} */
-
+/*icon balise i*/
 form .input-box i{
     position: absolute;
     top: 50%;
@@ -116,13 +112,15 @@ form .input-box i.showHide{
     right: 0;
     cursor: pointer;
 }
-/* Fin */
+/*fin icon balise i*/
 
+/*checkbox*/
 form .policy, .prof{
     display: flex;
     align-items: center;
 }
 
+/*checkbox titre*/
 form h3{
     color: #707070;
     font-size: 14px;
@@ -130,6 +128,7 @@ form h3{
     margin-left: 10px;
 }
 
+/*boutton*/
 .input-box.boutton input{
     color: black;
     letter-spacing: 1px;
@@ -144,13 +143,16 @@ form h3{
 .input-box.boutton input:hover{
     background: #dea99a;
 }
+/*fin boutton*/
 
+/*deja un compte*/
 form .text h3{
     color: #333;
     width: 100%;
     text-align: center;
 }
 
+/*deja un compte - lien*/
 form .text h3 a{
     color: #D68C45;
     text-decoration: none;
@@ -161,18 +163,20 @@ form .text h3 a:hover{
     text-decoration: underline;
 }
 
+/*responsive*/
 @media screen and (max-width: 735px) {
     form{
         margin: auto;
     }
     .image img{
-      display: none;
+        display: none;  
     }
 }
 
+/*faire l'apparition lors du chargement de la page*/
 @keyframes apparition {
     100% {
-      opacity: 1;
-      transform: none;
+        opacity: 1;
+        transform: none;
     }
 }

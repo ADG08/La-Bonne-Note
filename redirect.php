@@ -1,15 +1,16 @@
 <?php
 
-session_start();
+if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 
-$prof = isset($_SESSION['profil']['prof'])?($_SESSION['profil']['prof']):'';
+$id = isset($_SESSION['profil']['IdUtilisateur'])?($_SESSION['profil']['IdUtilisateur']):'';
+
+echo $id;
+
+$pdo = require_once './connectSQL.php';
+$stmt = $pdo->query("SELECT * FROM `infosup` where IdUtilisateur=$id");
+$prof = $stmt->fetch();
+$res = $prof['Prof'];
 
 
-if($prof==1){
-  require("prof.html");
-}else{
-  $url = "./Eleve/eleve.php";
-  header("Location:" . $url);
-}
 
 ?>
