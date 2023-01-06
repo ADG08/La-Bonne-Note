@@ -13,16 +13,9 @@ $id = isset($_SESSION['profil']['IdUtilisateur'])?($_SESSION['profil']['IdUtilis
 $arr = $_REQUEST["arr"];
 
 
-$stmt = $pdo->query("SELECT * FROM `infosup`,`favori` WHERE infosup.Prof = 1 AND infosup.Arrondissement = $arr AND NOT favori.IdProf = infosup.IdUtilisateur");
+$stmt = $pdo->query("SELECT * FROM `infosup` WHERE infosup.IdUtilisateur NOT IN(SELECT favori.IdProf FROM favori) AND infosup.Prof = 1 AND infosup.Arrondissement = $arr");
 while ($row = $stmt->fetch()) {
     array_push($res, $row['IdUtilisateur']);
-}
-
-if (empty($res)) {
-    $stmt = $pdo->query("SELECT * FROM `infosup` WHERE infosup.Prof = 1 AND infosup.Arrondissement = $arr");
-    while ($row = $stmt->fetch()) {
-        array_push($res, $row['IdUtilisateur']);
-    }
 }
 
 foreach($res as &$x){

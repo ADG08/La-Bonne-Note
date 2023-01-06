@@ -14,10 +14,10 @@
 <body>
   <div class="rec"></div>
   <div class="content">
+
     <div class="potential">
-      <h3 class="title">Élèves potentiel</h3>
+      <h3 class="title">Demandes</h3>
       <div class="eleves">
-        
 
       </div>
     </div>
@@ -27,6 +27,9 @@
       <div class="eleves">
       </div>
     </div>
+
+    <button class="boutton">Déconnexion</button>
+
   </div>
 </body>
 
