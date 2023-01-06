@@ -102,7 +102,8 @@ $(document).ready(function () {
         var result = JSON.parse(res);
         result.forEach((element) => {
           var x = L.marker([element.Latitude, element.Longitude])
-            .bindPopup( '<h3>' + element.Nom + " " + element.Prénom +'</h3>'+ "<br>"+ iconeP +"<button class=" + "suivie" + ">" + "demande" + "</button> " +"<br>"+ "<button class=" + "like" + ">" + "like" + "</button> ")
+            .bindPopup('<h3>' + element.Nom + " " + element.Prénom +'</h3>'+ "<br>"+ iconeP +"<p>Description du prof</p>"+"<br>"+"<button class=" + "suivie" + ">" + "Demande" + "</button> " +"<br>"+ "<button class=" + "like" + ">" + "like" + "</button> ")
+
             .addTo(map)
             .on("click", clickZoom);
 
@@ -126,7 +127,7 @@ $(document).ready(function () {
           icon: favoriIcon,
         })
           .bindPopup(
-           '<h3>' + element.Nom + " " + element.Prénom +'</h3>'+ "<br>"+ iconeP +"<button class=" + "suivie" + ">" + "demande" + "</button> " +"<br>"+ "<button class=" + "like" + ">" + "like" + "</button> "
+           '<h3>' + element.Nom + " " + element.Prénom +'</h3>'+ "<br>"+ iconeP +"<p>Description du prof</p>"+"<br>"+"<button class=" + "suivie" + ">" + "Demande" + "</button> " +"<br>"+ "<button class=" + "like" + ">" + "like" + "</button> "
           )
           .addTo(map)
           .on("click", clickZoom);
