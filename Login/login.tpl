@@ -9,7 +9,6 @@
   <title>Login - La Bonne Note</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/ac2f7dafa4.js" crossorigin="anonymous"></script>
-  <script src="login.js"></script>
 </head>
 
 <body>
@@ -34,10 +33,15 @@
         </div>
         <div class="text">
           <small>Pas encore inscrit(e) ? <a href="../Register/register.php">S'inscrire</a> </small>
+          <?php if ($error == 2){$msg = "Identifiant ou mot de passe incorrect.";
+      echo '<p style="color: red;  margin-right : 30%">'.$msg.'</p>';
+      }?>
         </div>
       </form>
+      
     </div>
   </div>
+<script src="login.js"></script>
 </body>
 
 </html>
