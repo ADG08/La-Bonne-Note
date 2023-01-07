@@ -20,7 +20,7 @@
 
       <form id="connexion" action="login.php" method="post">
         <div class="elements">
-          <input class="mail" type="text" name="email" value="<?php echo $email; ?>" placeholder="E-mail : exemple@e-mail.fr">
+          <input class="mail" type="text" name="email" value="<?php echo $email; ?>" placeholder="E-mail : exemple@gmail.com">
           <i class="fa-regular fa-envelope icon"></i>
         </div>
         <div class="elements">
