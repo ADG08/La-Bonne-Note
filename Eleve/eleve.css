@@ -4,11 +4,16 @@
 }
 
 .maDiv{
-    height: 80vh;
+    height: 100vh;
     width: 100vw;
+    z-index: 0;
 }
 
+
 .boutton{
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
     size: 20px;
     padding: 15px;
     margin: 25px;
@@ -23,8 +28,6 @@
 
     cursor:pointer;
     transition: all 0.3s ease;
-    position: absolute;
-    z-index: 10;
 }
 
 
