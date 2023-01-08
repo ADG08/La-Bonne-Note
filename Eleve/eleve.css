@@ -4,7 +4,7 @@
 }
 
 .maDiv{
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
 }
 
@@ -23,7 +23,10 @@
 
     cursor:pointer;
     transition: all 0.3s ease;
+    position: absolute;
+    z-index: 10;
 }
+
 
 .boutton:hover{
     background: #dea99a;

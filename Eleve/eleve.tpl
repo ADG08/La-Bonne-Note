@@ -16,10 +16,9 @@
 </head>
 
 <body>
-  <div class="maDiv" id="maDiv"></div>
-  <div>
     <form action="eleve.php" method="post"><button class="boutton" name="deco" value="1">Déconnexion</button></form>
-  </div>
+  <div class="maDiv" id="maDiv">  </div>
+  
 </body>
 
 </html>
