@@ -7,3 +7,25 @@
     height: 100vh;
     width: 100vw;
 }
+
+.boutton{
+    size: 20px;
+    padding: 15px;
+    margin: 25px;
+    width: 200px;
+
+    color:#333;
+    letter-spacing: 1px;
+
+    background: #FFC9B9;
+    border :#D68C45 solid 1px;
+    border-radius: 6px;
+
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+.boutton:hover{
+    background: #dea99a;
+    color: #333;
+}
