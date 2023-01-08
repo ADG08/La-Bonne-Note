@@ -21,6 +21,7 @@ header .logo {
 header h3 {
   margin:10px;
   margin-bottom: 1%;
+  margin-top: 30px;
   float: right;
 
   color: black;
@@ -28,7 +29,7 @@ header h3 {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 36px;
   align-self: center;
 }
@@ -45,10 +46,6 @@ a:visited {
 a:hover {
   text-decoration: none;
   color: #255b3d;
-}
-
-header .trait {
-  width: 50%;
 }
 
 header,
@@ -68,11 +65,7 @@ footer {
 .maDiv {
   height: 82vh;
   width: 60%;
-  
-  pointer-events: none;
-  cursor: default;
 }
-
 
 .info{
   width: 40%;
@@ -99,7 +92,7 @@ footer h5 {
   .container{
       width: 100%;
   }
-  .logo, h3, .trait {
+  .logo, h3 {
     position: static;
   }
 }
@@ -107,7 +100,20 @@ footer h5 {
   .h3 {
     margin-right: 70%;
   }
-.trait {
-  margin-right: 20%;
 }
+
+@media screen and (max-width: 810px) {
+  
+  .container {
+    flex-direction: column;
+  }
+
+  .maDiv {
+    width: 100%;
+  }
+
+  .info { 
+    width: 80%;
+    margin-left: 2.5%;
+  }
 }
