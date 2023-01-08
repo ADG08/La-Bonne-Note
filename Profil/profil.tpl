@@ -14,6 +14,11 @@
     </head>
 
     <body>
+        <div class="rec">
+            <a href="../Profil/profil.php"><button class="Profil" >Profil</button></a>
+            <a href="../Prof/prof.php"><button class="liste" >Listes</button></a>
+            <form action="profil.php" method="post"><button class="boutton" name="deco" value="1">Déconnexion</button></form>
+        </div>
         <div class="container">
             <div class="titre"><h2>Profil du professeur</h2></div>
                 <div class="info-simp">
