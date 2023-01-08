@@ -26,7 +26,7 @@ if (isset($_POST['check1'])) {
 if (count($_POST) == 0){
     require("register.tpl");
 }else{
-    if (!empty($prenom) && !empty($passw) && !empty($email)) {
+    if (!empty($prenom) && !empty($passw) && !empty($email) && !empty($nom) && !empty($adresse) && !empty($arrondissement) && !empty($naissance)) {
 
         $spacesInPlus = str_replace(" ", "+", $adresse);
         $url1 = "https://nominatim.openstreetmap.org/search.php?q=$spacesInPlus&format=jsonv2&email=youremail@gmail.com";
@@ -55,10 +55,7 @@ if (count($_POST) == 0){
         }else{
             $url = "../Login/login.php";
         }
-
-
-
-
+        
         header("Location:" . $url);
     }
 }
