@@ -35,3 +35,16 @@
     background: #dea99a;
     color: #333;
 }
+
+.suivie, .like, .dejaSuivi {
+    color: rgb(33, 33, 33);
+    background-color: #FFC9B9;
+    margin: 5px;
+    cursor: pointer;
+}
+.suivie:hover, .dejaSuivi:hover .like:hover {
+    background-color: #f0bfae;
+}
+.iconeProf {
+size: auto;
+}

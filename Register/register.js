@@ -4,7 +4,8 @@ const username = document.querySelectorAll("prenom");
 const password = document.querySelectorAll(".motdepasse");
 const password2 = document.querySelectorAll(".motdepasse2");
 const email = document.querySelectorAll('.email');
-//var form = document.formulaire;
+const erreur = document.querySelectorAll('.erreur');
+
 
 /*voir le mdp dans les champs .motdepasse*/
 showHide.forEach(eyeIcon =>{
@@ -76,6 +77,7 @@ function checkInputs() {
     }
 }
 
+
 /*fonction error, succes*/
 function setErrorFor(input, message) {
     console.log(input);
@@ -94,8 +96,4 @@ function setSuccessFor(input) {
 /*est un email*/
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}
-
-function isProf(){
-    
 }

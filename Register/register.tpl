@@ -15,7 +15,7 @@
 
     <div class="container">
         <h2>Inscription</h2>
-        <div class="fromu">
+        <div class="formu">
             <form name="formulaire" action="register.php" method="post">
                 <div class="input-box">
                     <input type="text" placeholder="Entrez votre nom" name="nom" value="<?php echo $nom; ?>" required>
@@ -30,7 +30,7 @@
                     <i class="fa-regular fa-envelope icon"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" pattern=".{8,}" class="motdepasse" placeholder="Mot de passe" name="passw" value="<?php echo $passw; ?>" required>
+                    <input type="password" pattern=".{8,}" class="motdepasse" placeholder="Mot de passe (8 caractères)" name="passw" value="<?php echo $passw; ?>" required>
                     <i class="fa-solid fa-lock icon"></i>
                 </div>
                 <div class="input-box">
@@ -47,7 +47,7 @@
                     <i class="fa-solid fa-house-user"></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" class="arrondissement" placeholder="Arrondissement (ex: 01)" name="arrondissement" value="<?php echo $arrondissement; ?>" required minlength="5" maxlength="5">
+                    <input type="text" class="arrondissement" placeholder="Arrondissement (ex: 01)" name="arrondissement" value="<?php echo $arrondissement; ?>" required minlength="2" maxlength="2">
                     <i class="fa-solid fa-earth-europe"></i>
                 </div>
                 <div class="input-box">

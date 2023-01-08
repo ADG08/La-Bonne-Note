@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 05 Janvier 2023 à 20:45
+-- Généré le :  Ven 06 Janvier 2023 à 21:27
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -31,14 +31,6 @@ CREATE TABLE `favori` (
   `IdEleve` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `favori`
---
-
-INSERT INTO `favori` (`IdProf`, `IdEleve`) VALUES
-(1, 2),
-(4, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -50,13 +42,6 @@ CREATE TABLE `infoprof` (
   `IdNiveau` int(11) NOT NULL,
   `IdMatiere` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `infoprof`
---
-
-INSERT INTO `infoprof` (`IdProf`, `IdNiveau`, `IdMatiere`) VALUES
-(1, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -73,21 +58,6 @@ CREATE TABLE `infosup` (
   `Prof` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `infosup`
---
-
-INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrondissement`, `Naissance`, `Prof`) VALUES
-(1, '2 Villa de la réunion', '', 15, '2003-08-08', 1),
-(2, '2 Villa de la réunion', '', 16, '2003-10-23', 0),
-(3, '142 Avenue de versaille', '', 16, '2003-01-01', 1),
-(4, 'babville', '', 16, '2003-01-01', 1),
-(5, 'tacville', '', 16, '2003-01-01', 0),
-(8, '3 rue des jean', '', 75015, '2023-01-26', 0),
-(11, '3 rue des janna', '', 75016, '2023-01-26', 1),
-(12, '3 rue des janna', '', 75016, '2023-01-26', 1),
-(13, '3 rue des janna', '', 75016, '2023-01-26', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -100,15 +70,6 @@ CREATE TABLE `localisation` (
   `Latitude` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `localisation`
---
-
-INSERT INTO `localisation` (`IdUtilisateur`, `Longitude`, `Latitude`) VALUES
-(1, 2.2672433, 48.8426489),
-(3, 2.2665383, 48.8416802),
-(4, 2.2665383, 48.8426489);
-
 -- --------------------------------------------------------
 
 --
@@ -117,14 +78,14 @@ INSERT INTO `localisation` (`IdUtilisateur`, `Longitude`, `Latitude`) VALUES
 
 CREATE TABLE `matière` (
   `IdMatiere` int(11) NOT NULL,
-  `Nom` varchar(20) NOT NULL
+  `NomMatiere` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `matière`
 --
 
-INSERT INTO `matière` (`IdMatiere`, `Nom`) VALUES
+INSERT INTO `matière` (`IdMatiere`, `NomMatiere`) VALUES
 (1, 'Math'),
 (2, 'Français'),
 (3, 'Histoire-Géo'),
@@ -143,14 +104,14 @@ INSERT INTO `matière` (`IdMatiere`, `Nom`) VALUES
 
 CREATE TABLE `niveau` (
   `IdNiveau` int(11) NOT NULL,
-  `Nom` varchar(20) NOT NULL
+  `NomNiveau` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `niveau`
 --
 
-INSERT INTO `niveau` (`IdNiveau`, `Nom`) VALUES
+INSERT INTO `niveau` (`IdNiveau`, `NomNiveau`) VALUES
 (1, '6eme'),
 (2, '5eme'),
 (3, '4eme'),
@@ -170,13 +131,6 @@ CREATE TABLE `potentiel` (
   `IdEleve` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `potentiel`
---
-
-INSERT INTO `potentiel` (`IdProf`, `IdEleve`) VALUES
-(1, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -187,13 +141,6 @@ CREATE TABLE `suivi` (
   `IdProf` int(11) NOT NULL,
   `IdEleve` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `suivi`
---
-
-INSERT INTO `suivi` (`IdProf`, `IdEleve`) VALUES
-(3, 2);
 
 -- --------------------------------------------------------
 
@@ -206,27 +153,8 @@ CREATE TABLE `utilisateurs` (
   `Nom` varchar(20) NOT NULL,
   `Prénom` varchar(20) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Password` varchar(20) NOT NULL
+  `Password` varchar(100  ) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `utilisateurs`
---
-
-INSERT INTO `utilisateurs` (`IdUtilisateur`, `Nom`, `Prénom`, `Email`, `Password`) VALUES
-(1, 'Domingues Ramos', 'André', 'andre@gmail.com', 'andre'),
-(2, 'Hazami', 'Sofia', 'sofia@gmail.com', 'sofia'),
-(3, 'Isk', 'Bab', 'bab@gmail.com', 'bab'),
-(4, 'test1', 't', 't@gmail.com', 't'),
-(5, 'tac', 'tac', 'tac@gmail.com', 'tac'),
-(6, 'bla', 'blo', 'blo@gmail.com', '12345678'),
-(7, 'blazenfbzkjebvk', 'bloaefa', 'blocab@gmail.com', '123456789'),
-(8, 'Moustache', 'Jean', 'jean@gmail.com', 'jeanjean'),
-(9, 'Moustache', 'Jean', 'jean@gmail.com', 'jeanjean'),
-(10, 'Moustache', 'Jean', 'jean@gmail.com', 'jeanjean'),
-(11, 'Moustache', 'Janna', 'janna@gmail.com', 'jannajanna'),
-(12, 'Moustache', 'joaenfi', 'joaenfi@gmail.com', 'tructruc'),
-(13, 'Moustache', 'paf', 'paf@gmail.com', 'pafpafpaf');
 
 --
 -- Index pour les tables exportées
@@ -236,7 +164,8 @@ INSERT INTO `utilisateurs` (`IdUtilisateur`, `Nom`, `Prénom`, `Email`, `Passwor
 -- Index pour la table `favori`
 --
 ALTER TABLE `favori`
-  ADD PRIMARY KEY (`IdProf`,`IdEleve`);
+  ADD PRIMARY KEY (`IdProf`,`IdEleve`),
+  ADD KEY `IdEleve` (`IdEleve`);
 
 --
 -- Index pour la table `infoprof`
@@ -272,13 +201,15 @@ ALTER TABLE `niveau`
 -- Index pour la table `potentiel`
 --
 ALTER TABLE `potentiel`
-  ADD PRIMARY KEY (`IdProf`,`IdEleve`);
+  ADD PRIMARY KEY (`IdProf`,`IdEleve`),
+  ADD KEY `IdEleve` (`IdEleve`);
 
 --
 -- Index pour la table `suivi`
 --
 ALTER TABLE `suivi`
-  ADD PRIMARY KEY (`IdProf`,`IdEleve`);
+  ADD PRIMARY KEY (`IdProf`,`IdEleve`),
+  ADD KEY `IdEleve` (`IdEleve`);
 
 --
 -- Index pour la table `utilisateurs`
@@ -304,22 +235,49 @@ ALTER TABLE `niveau`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `IdUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `IdUtilisateur` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Contraintes pour les tables exportées
 --
 
 --
+-- Contraintes pour la table `favori`
+--
+ALTER TABLE `favori`
+  ADD CONSTRAINT `favori_ibfk_1` FOREIGN KEY (`IdProf`) REFERENCES `utilisateurs` (`IdUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `favori_ibfk_2` FOREIGN KEY (`IdEleve`) REFERENCES `utilisateurs` (`IdUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `infoprof`
+--
+ALTER TABLE `infoprof`
+  ADD CONSTRAINT `infoprof_ibfk_1` FOREIGN KEY (`IdProf`) REFERENCES `utilisateurs` (`IdUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Contraintes pour la table `infosup`
 --
 ALTER TABLE `infosup`
-  ADD CONSTRAINT `Fk_InfoSup_IdUtilisateur` FOREIGN KEY (`IdUtilisateur`) REFERENCES `utilisateurs` (`IdUtilisateur`);
+  ADD CONSTRAINT `infosup_ibfk_1` FOREIGN KEY (`IdUtilisateur`) REFERENCES `utilisateurs` (`IdUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `localisation`
 --
 ALTER TABLE `localisation`
-  ADD CONSTRAINT `Fk_IdUtilisateur` FOREIGN KEY (`IdUtilisateur`) REFERENCES `utilisateurs` (`IdUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `localisation_ibfk_1` FOREIGN KEY (`IdUtilisateur`) REFERENCES `utilisateurs` (`IdUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `potentiel`
+--
+ALTER TABLE `potentiel`
+  ADD CONSTRAINT `potentiel_ibfk_1` FOREIGN KEY (`IdProf`) REFERENCES `utilisateurs` (`IdUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `potentiel_ibfk_2` FOREIGN KEY (`IdEleve`) REFERENCES `utilisateurs` (`IdUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `suivi`
+--
+ALTER TABLE `suivi`
+  ADD CONSTRAINT `suivi_ibfk_1` FOREIGN KEY (`IdProf`) REFERENCES `utilisateurs` (`IdUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `suivi_ibfk_2` FOREIGN KEY (`IdEleve`) REFERENCES `utilisateurs` (`IdUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

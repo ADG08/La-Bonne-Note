@@ -15,7 +15,7 @@ $(document).ready(function () {
             var resultat = JSON.parse(res)
 
             resultat.forEach(element => {
-                var result = firstContentSuivie + element.nom + " " + element.prenom + "<br/>" + element.email + lastContentSuivie;
+                var result = firstContentSuivie + element.nom + " " + element.prenom + lastContentSuivie + "<h3>" +element.email + lastContentSuivie;
                 $(".suivie .eleves").append(result);
 
             });
@@ -24,7 +24,6 @@ $(document).ready(function () {
             console.error(err);
         },
     });
-
 
 
     $.ajax({
@@ -44,7 +43,6 @@ $(document).ready(function () {
 
                 $('.valider').click(valider)
                 $('.del').click(del)
-
 
             });
         },
@@ -93,21 +91,5 @@ $(document).ready(function () {
             },
         });
     }
-
-
-
-
-    /*
-        
-    
-         
-        Pour les eleves potentiels faut ajouter sa 
-        
-        <div class="imgContainer"> <img src="https://t3.ftcdn.net/jpg/00/26/43/56/360_F_26435684_nI2nmc5VtQ0N3vbBld4DQFGSXN0G54vj.jpg" alt=""> <img src="https://cdn-icons-png.flaticon.com/512/59/59254.png" alt=""> */
-
-
-
-
-
 
 })

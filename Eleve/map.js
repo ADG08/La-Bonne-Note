@@ -121,11 +121,11 @@ $(document).ready(function () {
                 text = "Suivi"
               }
 
-              //ajax ici pour recup la matiere et l'autre 
+              
 
 
               var x = L.marker([element.Latitude, element.Longitude])
-                .bindPopup('<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p>' + " pour " + '</p><br><button class="suivie">' + text + '</button><br><button class="like">Ajouter aux fav</button>')
+                .bindPopup('<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p class="infoProf"></p><br><button class="suivie">' + text + '</button><br><button class="like">Ajouter aux fav</button>')
                 .addTo(map)
                 .on("click", clickZoom);
 
@@ -173,28 +173,15 @@ $(document).ready(function () {
               text = "Déjà suivi"
             }
 
-            $.ajax({
-              type: "POST",
-              url: "recupInfoProf.php",
-              data: {
-                idProf: id.IdUtilisateur
-              },
-              success: function (res) {
-                console.log(res)
-              },
-              error: function (err) {
-                console.error(err);
-              },
-            })
-
             if (result == "su") {
+
 
               JSON.parse(res).forEach((element) => {
                 L.marker([element.Latitude, element.Longitude], {
                   icon: favoriIcon,
                 })
                   .bindPopup(
-                    '<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p>' + " pour " + '</p><br><button class="dejaSuivi">' + text + '</button><br><button class="like">Enlever des fav</button>'
+                    '<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p class="infoProf"></p><br><button class="dejaSuivi">' + text + '</button><br><button class="like">Enlever des fav</button>'
                   )
                   .addTo(map)
                   .on("click", clickZoom);
@@ -210,7 +197,7 @@ $(document).ready(function () {
                   icon: favoriIcon,
                 })
                   .bindPopup(
-                    '<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p>' + " pour " + '</p><br><button class="suivie">' + text + '</button><br><button class="like">Enlever des fav</button>'
+                    '<h3>' + element.Nom + " " + element.Prénom + "</h3><br>" + '<p class="infoProf"></p><br><button class="suivie">' + text + '</button><br><button class="like">Enlever des fav</button>'
                   )
                   .addTo(map)
                   .on("click", clickZoom);
@@ -220,6 +207,7 @@ $(document).ready(function () {
 
               });
             }
+            
           },
           error: function (err) {
             console.error(err);
@@ -318,6 +306,22 @@ $(document).ready(function () {
     } else {
       $(".like").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng, param: false }, liker)
     }
+
+    $.ajax({
+      type: "POST",
+      url: "recupInfoProf.php",
+      data: {
+        lat: e.target._latlng.lat,
+        lng: e.target._latlng.lng
+      },
+      success: function (res) {
+        $(".infoProf").text( JSON.parse(res)[0] + " pour " + JSON.parse(res)[1] )
+      },
+      error: function (err) {
+        console.error(err);
+      },
+    })
+
 
     $(".suivie").click({ lat: e.target._latlng.lat, lng: e.target._latlng.lng }, suivie)
 
