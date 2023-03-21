@@ -12,7 +12,8 @@
   <script src="../data/arrondissements.js"></script>
   <link rel="stylesheet" href="eleve.css">
 
-  <title>Document</title>
+  <title>Map La Bonne Note</title>
+  <link rel="shortcut icon" href="../PPrincipale/Images/Favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
