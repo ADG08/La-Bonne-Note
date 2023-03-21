@@ -18,7 +18,7 @@ if (count($_POST) == 0){
     echo $matiere;
     echo $niveau;
 
-    $stmt = $pdo->query("INSERT INTO `infoprof`(`IdProf`, `IdNiveau`, `IdMatiere`) VALUES('$id', '$matiere', '$niveau')");
+    $stmt = $pdo->query("INSERT INTO `infoprof`(`IdProf`, `IdNiveau`, `IdMatiere`) VALUES('$id', '$niveau', '$matiere')");
     $url = "../Login/login.php";
     header("Location:" . $url);
 }

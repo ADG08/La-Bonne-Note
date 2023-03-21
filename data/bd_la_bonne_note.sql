@@ -47,7 +47,7 @@ CREATE TABLE `infoprof` (
 -- Contenu de la table `infoprof`
 --
 
-INSERT INTO `infoprof` (`IdProf`, `IdNiveau`, `IdMatiere`) VALUES
+INSERT INTO `infoprof` (`IdProf`, `IdMatiere`, `IdNiveau`) VALUES
 (1, 2, 3),
 (10, 3, 2),
 (12, 2, 7),
@@ -108,6 +108,8 @@ INSERT INTO `infosup` (`IdUtilisateur`, `Adresse`, `Complément`, `Arrondissemen
 (12, '11 Rue Saint-Dominique', '', 7, '1986-01-25', 1),
 (13, '35 Rue de la Pompe', '', 16, '2001-06-04', 1),
 (15, '11 rue de la Ferronnerie', '', 1, '2003-02-22', 1),
+(16, '170 avenue de Versailles', '', 16, '2003-03-27', 1),
+(17, '29 rue de Saussure', '', 17, '2001-06-29', 1),
 (19, '18 Rue Portefoin', '', 3, '1996-03-10', 1),
 (20, '22 Rue de Rivoli', '', 4, '1994-11-26', 1),
 (22, '34 Rue de la Montagne Ste Geneviève', '', 5, '2001-05-13', 1),
@@ -156,8 +158,8 @@ INSERT INTO `localisation` (`IdUtilisateur`, `Longitude`, `Latitude`) VALUES
 (12, 2.3224187, 48.858257),
 (13, 2.2751738, 48.8609804),
 (15, 2.3477121, 48.8601892),
-(16, 2.0777129, 49.4299763),
-(17, 6.867752019292601, 47.631881500000006),
+(16, 2.2632406, 48.8399743),
+(17, 2.3159672, 48.8843453),
 (19, 2.359221, 48.8640865),
 (20, 2.3586033, 48.8559138),
 (22, 2.3484541, 48.8480246),
@@ -178,7 +180,7 @@ INSERT INTO `localisation` (`IdUtilisateur`, `Longitude`, `Latitude`) VALUES
 (40, 2.32064, 48.8359737),
 (41, 2.2785141, 48.866903),
 (42, 2.3269711, 48.8841561),
-(43, 48.8848298, 2.324902),
+(43, 2.324902, 48.8848298),
 (44, 2.3503182, 48.8904951),
 (45, 2.3258044, 48.8873664),
 (46, 2.3751994, 48.8897749),

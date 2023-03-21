@@ -14,8 +14,8 @@ $idProf = $row['IdUtilisateur'];
 
 $stmt = $pdo->query("SELECT * from InfoProf where IdProf = $idProf");
 $res = $stmt->fetch();
-$nomNiv = $res['IdMatiere'];
-$nomMat = $res['IdNiveau'];
+$nomMat = $res['IdMatiere'];
+$nomNiv = $res['IdNiveau'];
 
 $result = array();
 
